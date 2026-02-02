@@ -10,22 +10,24 @@ const isConfigured = supabaseUrl &&
     supabaseAnonKey !== 'YOUR_SUPABASE_ANON_KEY';
 
 if (!isConfigured && typeof window !== 'undefined') {
-    console.group('🛠️ Supabase Configuration Status');
+    console.warn('🔍 DEBUG SUPABASE CONFIGURATION:');
+
     if (!supabaseUrl || supabaseUrl === 'YOUR_SUPABASE_URL') {
-        console.error('❌ NEXT_PUBLIC_SUPABASE_URL is missing or default.');
+        console.warn('❌ URL: MISSING (Vercel env is not reaching the client)');
     } else {
-        console.log('✅ NEXT_PUBLIC_SUPABASE_URL is set.');
+        console.warn('✅ URL: FOUND (' + supabaseUrl.substring(0, 15) + '...)');
     }
 
     if (!supabaseAnonKey || supabaseAnonKey === 'YOUR_SUPABASE_ANON_KEY') {
-        console.error('❌ NEXT_PUBLIC_SUPABASE_ANON_KEY is missing or default.');
+        console.warn('❌ ANON_KEY: MISSING (Vercel env is not reaching the client)');
     } else {
-        console.log('✅ NEXT_PUBLIC_SUPABASE_ANON_KEY is set.');
+        console.warn('✅ ANON_KEY: FOUND (' + supabaseAnonKey.substring(0, 8) + '...)');
     }
-    
-    console.warn('⚠️ Please check your Vercel Dashboard -> Settings -> Environment Variables.');
-    console.warn('⚠️ Ensure all variables start with NEXT_PUBLIC_ prefix.');
-    console.groupEnd();
+
+    console.warn('👉 RELEMBRE: No Vercel, o nome deve ser EXATAMENTE:');
+    console.warn('   NEXT_PUBLIC_SUPABASE_URL');
+    console.warn('   NEXT_PUBLIC_SUPABASE_ANON_KEY');
+    console.warn('👉 Após salvar no Vercel, você PRECISA clicar em "REDEPLOY" na aba Deployments.');
 }
 
 export const supabase = isConfigured
