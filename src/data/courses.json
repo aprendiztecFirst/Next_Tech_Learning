@@ -1,0 +1,437 @@
+[
+  {
+    "id": "js-ch1",
+    "title": "Capítulo 1 - Introdução",
+    "lessons": [
+      {
+        "id": "js-intro",
+        "title": "O que é JavaScript?",
+        "description": "JavaScript é a linguagem que dá vida à web.",
+        "instructions": "Exiba 'Hello World' usando console.log().",
+        "initialCode": "// Digite aqui\n",
+        "solution": "console.log('Hello World');",
+        "test": "true"
+      }
+    ]
+  },
+  {
+    "id": "js-ch2",
+    "title": "Capítulo 2 - Sintaxe Básica",
+    "lessons": [
+      {
+        "id": "js-basic-syntax",
+        "title": "Variáveis let e const",
+        "description": "Entenda como armazenar dados.",
+        "instructions": "Crie uma constante chamada 'nome' com o valor 'JS' e use console.log(nome) para ver o resultado.",
+        "initialCode": "const nome = '';\n",
+        "solution": "const nome = 'JS';\nconsole.log(nome);",
+        "test": "typeof nome !== 'undefined' && nome === 'JS'"
+      }
+    ]
+  },
+  {
+    "id": "js-ch3",
+    "title": "Capítulo 3 - Estrutura de Controle",
+    "lessons": [
+      {
+        "id": "js-logic",
+        "title": "If e Else",
+        "description": "Tome decisões no seu código.",
+        "instructions": "Crie uma condição simples.",
+        "initialCode": "if (true) { }",
+        "solution": "if (true) { console.log('Sim'); }",
+        "test": "true"
+      }
+    ]
+  },
+  {
+    "id": "js-ch4",
+    "title": "Capítulo 4 - Funções",
+    "lessons": [
+      {
+        "id": "js-funcs",
+        "title": "Declarando Funções",
+        "description": "Blocos de código reutilizáveis.",
+        "instructions": "Crie uma função que retorne 1.",
+        "initialCode": "function test() { }",
+        "solution": "function test() { return 1; }",
+        "test": "true"
+      }
+    ]
+  },
+  {
+    "id": "js-ch5",
+    "title": "Capítulo 5 - Objetos e Arrays",
+    "lessons": [
+      {
+        "id": "js-obj-arr",
+        "title": "Listas de Dados",
+        "description": "Trabalhando com coleções.",
+        "instructions": "Crie um array com 3 números.",
+        "initialCode": "const lista = [];",
+        "solution": "const lista = [1, 2, 3];",
+        "test": "true"
+      }
+    ]
+  },
+  {
+    "id": "js-ch6",
+    "title": "Capítulo 6 - I/O Básico",
+    "lessons": [
+      {
+        "id": "js-io",
+        "title": "Entrada e Saída",
+        "description": "Interagindo com o usuário.",
+        "instructions": "Use o prompt() para pedir um nome.",
+        "initialCode": "const nome = '';",
+        "solution": "const nome = prompt('Qual seu nome?');",
+        "test": "true"
+      }
+    ]
+  },
+  {
+    "id": "js-ch7",
+    "title": "Capítulo 7 - Manipulação do DOM",
+    "lessons": [
+      {
+        "id": "js-dom",
+        "title": "Acessando Elementos",
+        "description": "Como o JS vê o HTML.",
+        "instructions": "Selecione um elemento por ID.",
+        "initialCode": "const el = document.getElementById('');",
+        "solution": "const el = document.getElementById('app');",
+        "test": "true"
+      }
+    ]
+  },
+  {
+    "id": "js-ch8",
+    "title": "Capítulo 8 - Eventos e Propagação",
+    "lessons": [
+      {
+        "id": "js-events",
+        "title": "Cliques e Teclado",
+        "description": "Respondendo a interações.",
+        "instructions": "Adicione um event listener de clique.",
+        "initialCode": "el.addEventListener('', () => {});",
+        "solution": "el.addEventListener('click', () => { console.log('Oi'); });",
+        "test": "true"
+      }
+    ]
+  },
+  {
+    "id": "js-ch9",
+    "title": "Capítulo 9 - Funções de ordem Superior",
+    "lessons": [
+      {
+        "id": "js-hof",
+        "title": "Map e Filter",
+        "description": "Poderosas ferramentas de array.",
+        "instructions": "Use .map() para dobrar valores.",
+        "initialCode": "const dobrados = [1,2].map();",
+        "solution": "const dobrados = [1,2].map(x => x * 2);",
+        "test": "true"
+      }
+    ]
+  },
+  {
+    "id": "js-ch10",
+    "title": "Capítulo 10 - JSON e armazenamento local",
+    "lessons": [
+      {
+        "id": "js-json",
+        "title": "LocalStorage",
+        "description": "Salve dados no navegador.",
+        "instructions": "Salve uma string no localStorage.",
+        "initialCode": "localStorage.setItem('', '');",
+        "solution": "localStorage.setItem('user', 'vitor');",
+        "test": "true"
+      }
+    ]
+  },
+  {
+    "id": "js-ch11",
+    "title": "Capítulo 11 - Módulos ES6",
+    "lessons": [
+      {
+        "id": "js-modules",
+        "title": "Export e Import",
+        "description": "Organizando seu projeto.",
+        "instructions": "Export uma constante.",
+        "initialCode": "export const teste = 1;",
+        "solution": "export const valor = 100;",
+        "test": "true"
+      }
+    ]
+  },
+  {
+    "id": "js-ch12",
+    "title": "Capítulo 12 - Classes e Herança",
+    "lessons": [
+      {
+        "id": "js-classes",
+        "title": "Orientação a Objetos",
+        "description": "Modelando o mundo real.",
+        "instructions": "Crie uma classe Pessoa.",
+        "initialCode": "class Pessoa { }",
+        "solution": "class Pessoa { constructor(n) { this.nome = n; } }",
+        "test": "true"
+      }
+    ]
+  },
+  {
+    "id": "js-ch13",
+    "title": "Capítulo 13 - Programação Assíncrona",
+    "lessons": [
+      {
+        "id": "js-async",
+        "title": "Promises e Async/Await",
+        "description": "Lidando com o tempo.",
+        "instructions": "Crie uma função async.",
+        "initialCode": "async function call() { }",
+        "solution": "async function call() { await Promise.resolve(); }",
+        "test": "true"
+      }
+    ]
+  },
+  {
+    "id": "js-ch14",
+    "title": "Capítulo 14 - Manipulação avançada do DOM",
+    "lessons": [
+      {
+        "id": "js-adv-dom",
+        "title": "MutationObserver",
+        "description": "Observando mudanças.",
+        "instructions": "Crie um observer.",
+        "initialCode": "const obs = new MutationObserver();",
+        "solution": "const obs = new MutationObserver(() => {});",
+        "test": "true"
+      }
+    ]
+  },
+  {
+    "id": "js-ch15",
+    "title": "Capítulo 15 - Design Patterns",
+    "lessons": [
+      {
+        "id": "js-patterns",
+        "title": "Singleton Pattern",
+        "description": "Padrões de projeto.",
+        "instructions": "Explique o Singleton (comentário).",
+        "initialCode": "// Singleton é...",
+        "solution": "// Instância única",
+        "test": "true"
+      }
+    ]
+  },
+  {
+    "id": "js-ch16",
+    "title": "Capítulo 16 - Testes automatizados",
+    "lessons": [
+      {
+        "id": "js-testing",
+        "title": "Jest e TDD",
+        "description": "Garantindo a qualidade.",
+        "instructions": "Escreva um mock test.",
+        "initialCode": "test('1+1', () => {});",
+        "solution": "test('1+1', () => { expect(1+1).toBe(2); });",
+        "test": "true"
+      }
+    ]
+  },
+  {
+    "id": "js-ch17",
+    "title": "Capítulo 17 - Performance e Otimização",
+    "lessons": [
+      {
+        "id": "js-perf",
+        "title": "Debounce e Throttle",
+        "description": "Melhorando a resposta.",
+        "instructions": "Implemente um debounce simples (pseudo).",
+        "initialCode": "function debounce() { }",
+        "solution": "function debounce(f, t) { return f; }",
+        "test": "true"
+      }
+    ]
+  },
+  {
+    "id": "py-ch1",
+    "title": "Capítulo 1 - Introdução",
+    "lessons": [
+      {
+        "id": "py-hello",
+        "title": "Olá Mundo em Python",
+        "description": "Comece sua jornada Python.",
+        "instructions": "Use print() para exibir 'Olá Mundo'.",
+        "initialCode": "print()",
+        "solution": "print('Olá Mundo')",
+        "test": "output.includes('Olá')"
+      }
+    ]
+  },
+  {
+    "id": "py-ch2",
+    "title": "Capítulo 2 - Variáveis e Tipos",
+    "lessons": [
+      {
+        "id": "py-vars",
+        "title": "Tipos Primitivos",
+        "description": "Atribuição de valores e tipos básicos.",
+        "instructions": "Crie uma variável x com valor 10.",
+        "initialCode": "x = 0",
+        "solution": "x = 10",
+        "test": "x === 10"
+      }
+    ]
+  },
+  {
+    "id": "py-ch3",
+    "title": "Capítulo 3 - Operadores Aritméticos",
+    "lessons": [
+      {
+        "id": "py-math",
+        "title": "Aritmética Básica",
+        "description": "Soma, subtração, multiplicação e divisão.",
+        "instructions": "Imprima a soma de 5 + 5.",
+        "initialCode": "print()",
+        "solution": "print(5 + 5)",
+        "test": "output.includes('10')"
+      }
+    ]
+  },
+  {
+    "id": "py-ch4",
+    "title": "Capítulo 4 - Utilizando Módulos",
+    "lessons": [
+      {
+        "id": "py-modules",
+        "title": "Importando math",
+        "description": "Use bibliotecas internas do Python.",
+        "instructions": "Importe math e imprima math.sqrt(16).",
+        "initialCode": "import",
+        "solution": "import math\nprint(math.sqrt(16))",
+        "test": "output.includes('4.0')"
+      }
+    ]
+  },
+  {
+    "id": "py-ch5",
+    "title": "Capítulo 5 - Manipulando Strings",
+    "lessons": [
+      {
+        "id": "py-strings",
+        "title": "Análise de Texto",
+        "description": "Fatiamento e métodos de string.",
+        "instructions": "Coloque a string 'python' em maiúsculas.",
+        "initialCode": "s = 'python'\nprint()",
+        "solution": "s = 'python'\nprint(s.upper())",
+        "test": "output.includes('PYTHON')"
+      }
+    ]
+  },
+  {
+    "id": "py-ch6",
+    "title": "Capítulo 6 - Condições (Tomada de Decisões)",
+    "lessons": [
+      {
+        "id": "py-if",
+        "title": "Estrutura If/Else",
+        "description": "Controle se o código deve rodar ou não.",
+        "instructions": "Se a nota for >= 7, imprima 'Aprovado'.",
+        "initialCode": "nota = 8\n",
+        "solution": "nota = 8\nif nota >= 7: print('Aprovado')",
+        "test": "output.includes('Aprovado')"
+      }
+    ]
+  },
+  {
+    "id": "py-ch7",
+    "title": "Capítulo 7 - Projeto: Divisão de Conta",
+    "lessons": [
+      {
+        "id": "py-proj-calc",
+        "title": "Calculadora de Conta",
+        "description": "Calcula quanto cada um paga na mesa.",
+        "instructions": "Divida 100 por 4 e imprima o resultado.",
+        "initialCode": "total = 100\npessoas = 4\n",
+        "solution": "print(100 / 4)",
+        "test": "output.includes('25')"
+      }
+    ]
+  },
+  {
+    "id": "py-ch8",
+    "title": "Capítulo 8 - Estrutura de Repetição (Laços)",
+    "lessons": [
+      {
+        "id": "py-for",
+        "title": "Laço For",
+        "description": "Repita ações um número definido de vezes.",
+        "instructions": "Imprima números de 1 a 3 usando for.",
+        "initialCode": "for i in range(1, 4):",
+        "solution": "for i in range(1, 4): print(i)",
+        "test": "output.includes('1') && output.includes('3')"
+      }
+    ]
+  },
+  {
+    "id": "py-ch9",
+    "title": "Capítulo 9 - Tuplas, Listas e Dicionários",
+    "lessons": [
+      {
+        "id": "py-lists",
+        "title": "Listas em Python",
+        "description": "Armazene múltiplos valores em uma variável.",
+        "instructions": "Adicione 'Uva' à lista frutas.",
+        "initialCode": "frutas = ['Maçã']\n",
+        "solution": "frutas.append('Uva')\nprint(frutas)",
+        "test": "output.includes('Uva')"
+      }
+    ]
+  },
+  {
+    "id": "py-ch10",
+    "title": "Capítulo 10 - Funções",
+    "lessons": [
+      {
+        "id": "py-funcs",
+        "title": "Definindo Funções",
+        "description": "Crie seus próprios comandos customizados.",
+        "instructions": "Crie uma função somar(a,b) que retorna a+b.",
+        "initialCode": "def somar(a, b):\n    pass",
+        "solution": "def somar(a,b): return a+b",
+        "test": "somar(2,3) === 5"
+      }
+    ]
+  },
+  {
+    "id": "py-ch11",
+    "title": "Capítulo 11 - Módulos e Pacotes",
+    "lessons": [
+      {
+        "id": "py-packages",
+        "title": "Organização",
+        "description": "Como organizar códigos complexos.",
+        "instructions": "Imprima 'Pacote OK'.",
+        "initialCode": "print()",
+        "solution": "print('Pacote OK')",
+        "test": "output.includes('OK')"
+      }
+    ]
+  },
+  {
+    "id": "py-ch12",
+    "title": "Capítulo 12 - Tratamento de Erros e Exceções",
+    "lessons": [
+      {
+        "id": "py-try",
+        "title": "Try/Except",
+        "description": "Evite que seu programa trave ao dar erro.",
+        "instructions": "Use try/except para capturar erro de divisão por zero.",
+        "initialCode": "try:\n    print(10/0)\nexcept:",
+        "solution": "try: print(10/0)\nexcept ZeroDivisionError: print('Erro')",
+        "test": "output.includes('Erro')"
+      }
+    ]
+  }
+]

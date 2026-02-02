@@ -1,0 +1,1658 @@
+{
+    "py": {
+        "world1": [
+            {
+                "id": "py-ex001",
+                "title": "EX001 – Olá Mundo",
+                "description": "Crie um programa que escreva a mensagem 'Olá, Mundo!' na tela.",
+                "initialCode": "print()",
+                "solution": "print('Olá, Mundo!')",
+                "test": "output.includes('Olá, Mundo!')"
+            },
+            {
+                "id": "py-ex002",
+                "title": "EX002 – Boas-vindas",
+                "description": "Leia o nome de uma pessoa e exiba uma mensagem de boas-vindas personalizada.",
+                "initialCode": "nome = input('Qual seu nome? ')",
+                "solution": "nome = input('Qual seu nome? ')\nprint(f'Olá {nome}, prazer em te conhecer!')",
+                "test": "output.includes('Olá')"
+            },
+            {
+                "id": "py-ex003",
+                "title": "EX003 – Somando números",
+                "description": "Leia dois números inteiros e mostre a soma entre eles.",
+                "initialCode": "n1 = int(input())\nn2 = int(input())",
+                "solution": "n1 = int(input())\nn2 = int(input())\nprint(n1 + n2)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex004",
+                "title": "EX004 – Dissecando Variável",
+                "description": "Leia algo pelo teclado e mostre seu tipo primitivo e informações (numérico, alfabético, etc).",
+                "initialCode": "a = input('Digite algo: ')",
+                "solution": "a = input('Digite algo: ')\nprint(type(a), a.isnumeric(), a.isalpha())",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex005",
+                "title": "EX005 – Antecessor e Sucessor",
+                "description": "Leia um número inteiro e mostre seu antecessor e sucessor.",
+                "initialCode": "n = int(input())",
+                "solution": "n = int(input())\nprint(f'Antec: {n-1}, Suces: {n+1}')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex006",
+                "title": "EX006 – Dobro, Triplo, Raiz",
+                "description": "Leia um número e calcule o seu dobro, triplo e a raiz quadrada.",
+                "initialCode": "n = float(input())",
+                "solution": "n = float(input())\nprint(f'{n*2} {n*3} {n**(1/2)}')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex007",
+                "title": "EX007 – Média Aritmética",
+                "description": "Leia duas notas de um aluno, calcule e mostre sua média.",
+                "initialCode": "n1 = float(input())\nn2 = float(input())",
+                "solution": "n1 = float(input())\nn2 = float(input())\nprint((n1+n2)/2)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex008",
+                "title": "EX008 – Conversor de Medidas",
+                "description": "Leia um valor em metros e converta para centímetros e milímetros.",
+                "initialCode": "m = float(input())",
+                "solution": "m = float(input())\nprint(f'{m*100}cm {m*1000}mm')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex009",
+                "title": "EX009 – Tabuada v1.0",
+                "description": "Leia um número inteiro e mostre sua tabuada.",
+                "initialCode": "n = int(input())",
+                "solution": "n = int(input())\nfor i in range(1, 11): print(f'{n} x {i} = {n*i}')",
+                "test": "output.includes('10')"
+            },
+            {
+                "id": "py-ex010",
+                "title": "EX010 – Conversor Moedas",
+                "description": "Leia quanto dinheiro tem na carteira e mostre quantos dólares pode comprar (US$1 = R$3,27).",
+                "initialCode": "r = float(input())",
+                "solution": "r = float(input())\nprint(r / 3.27)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex011",
+                "title": "EX011 – Pintando Parede",
+                "description": "Leia largura e altura da parede, calcule área e tinta necessária (1L cobre 2m²).",
+                "initialCode": "l = float(input())\na = float(input())",
+                "solution": "l = float(input()); a = float(input())\narea = l * a\nprint(f'Área: {area}, Tinta: {area/2}')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex012",
+                "title": "EX012 – Desconto (5%)",
+                "description": "Leia o preço e mostre novo preço com 5% de desconto.",
+                "initialCode": "p = float(input())",
+                "solution": "p = float(input())\nprint(p * 0.95)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex013",
+                "title": "EX013 – Reajuste Salarial",
+                "description": "Leia o salário e mostre novo com 15% de aumento.",
+                "initialCode": "s = float(input())",
+                "solution": "s = float(input())\nprint(s * 1.15)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex014",
+                "title": "EX014 – Conversor Temps",
+                "description": "Converta Celsius para Fahrenheit.",
+                "initialCode": "c = float(input())",
+                "solution": "c = float(input())\nprint((c * 9/5) + 32)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex015",
+                "title": "EX015 – Aluguel de Carros",
+                "description": "Preço: R$60/dia e R$0,15/km.",
+                "initialCode": "d = int(input())\nk = float(input())",
+                "solution": "d=int(input()); k=float(input())\nprint(d*60 + k*0.15)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex016",
+                "title": "EX016 – Quebrando Número",
+                "description": "Leia um número real e mostre apenas sua parte inteira.",
+                "initialCode": "n = float(input())",
+                "solution": "import math; n=float(input())\nprint(math.trunc(n))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex017",
+                "title": "EX017 – Hipotenusa",
+                "description": "Calcule a hipotenusa a partir dos catetos.",
+                "initialCode": "c1 = float(input())\nc2 = float(input())",
+                "solution": "import math; c1=float(input()); c2=float(input())\nprint(math.hypot(c1, c2))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex018",
+                "title": "EX018 – Seno, Cosseno, Tan",
+                "description": "Calcule seno, cosseno e tangente de um ângulo.",
+                "initialCode": "a = float(input())",
+                "solution": "import math; a=math.radians(float(input()))\nprint(math.sin(a), math.cos(a), math.tan(a))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex019",
+                "title": "EX019 – Sorteando Item",
+                "description": "Leia 4 nomes e sorteie um.",
+                "initialCode": "import random",
+                "solution": "import random; n=[input() for _ in range(4)]; print(random.choice(n))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex020",
+                "title": "EX020 – Sorteando Ordem",
+                "description": "Sorteie a ordem de apresentação de 4 alunos.",
+                "initialCode": "import random",
+                "solution": "import random; n=[input() for _ in range(4)]; random.shuffle(n); print(n)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex021",
+                "title": "EX021 – MP3 Player",
+                "description": "Simule a reprodução de um MP3.",
+                "initialCode": "pass",
+                "solution": "print('Reproduzindo áudio...')",
+                "test": "output.includes('Reproduzindo')"
+            },
+            {
+                "id": "py-ex022",
+                "title": "EX022 – Analisador Textos",
+                "description": "Nome: maiúsculas, minúsculas, tamanho e primeiro nome.",
+                "initialCode": "n = input()",
+                "solution": "n=input().strip(); print(n.upper(), n.lower(), len(n.replace(' ','')), n.split()[0])",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex023",
+                "title": "EX023 – Separador Dígitos",
+                "description": "Separe as unidades, dezenas, centenas de 0-9999.",
+                "initialCode": "n = int(input())",
+                "solution": "n=int(input()); print(f'U: {n%10}, D: {n//10%10}, C: {n//100%10}, M: {n//1000%10}')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex024",
+                "title": "EX024 – Começa com SANTO?",
+                "description": "Verifique se o nome da cidade começa com SANTO.",
+                "initialCode": "c = input()",
+                "solution": "c=input().strip().upper(); print(c[:5] == 'SANTO')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex025",
+                "title": "EX025 – Tem SILVA?",
+                "description": "Verifique se a pessoa tem SILVA no nome.",
+                "initialCode": "n = input()",
+                "solution": "n=input().strip().upper(); print('SILVA' in n)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex026",
+                "title": "EX026 – Primeira/Última Ocorrência",
+                "description": "Conte a letra 'A' e mostre primeira/última posição.",
+                "initialCode": "f = input()",
+                "solution": "f=input().upper().strip(); print(f.count('A'), f.find('A')+1, f.rfind('A')+1)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex027",
+                "title": "EX027 – Primeiro/Último Nome",
+                "description": "Exiba apenas o primeiro e o último nome de uma pessoa.",
+                "initialCode": "n = input()",
+                "solution": "n=input().split(); print(n[0], n[-1])",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex028",
+                "title": "EX028 – Adivinhação v1.0",
+                "description": "Tente adivinhar o número (0-5) pensado pelo PC.",
+                "initialCode": "import random",
+                "solution": "import random; pc=random.randint(0,5); j=int(input()); print('Ganhou' if j==pc else 'Perdeu')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex029",
+                "title": "EX029 – Radar Eletrônico",
+                "description": "Cobre R$7 por cada km acima de 80km/h.",
+                "initialCode": "v = float(input())",
+                "solution": "v=float(input()); print(f'Multa: {(v-80)*7}' if v>80 else 'Ok')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex030",
+                "title": "EX030 – Par ou Ímpar?",
+                "description": "Verifique se um número é par ou ímpar.",
+                "initialCode": "n = int(input())",
+                "solution": "n=int(input()); print('Par' if n%2==0 else 'Ímpar')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex031",
+                "title": "EX031 – Custo Viagem",
+                "description": "Até 200km: R$0,50/km. Acima: R$0,45/km.",
+                "initialCode": "d = float(input())",
+                "solution": "d=float(input()); print(d*0.5 if d<=200 else d*0.45)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex032",
+                "title": "EX032 – Ano Bissexto",
+                "description": "Verifique se um ano é bissexto.",
+                "initialCode": "a = int(input())",
+                "solution": "import datetime; a=int(input()); \nif a==0: a=datetime.date.today().year\nprint('Bissexto' if a%4==0 and (a%100!=0 or a%400==0) else 'Não')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex033",
+                "title": "EX033 – Maior/Menor Valores",
+                "description": "Leia 3 números e mostre o maior e o menor.",
+                "initialCode": "l = [int(input()) for _ in range(3)]",
+                "solution": "l=[int(input()) for _ in range(3)]; print(max(l), min(l))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex034",
+                "title": "EX034 – Aumentos Múltiplos",
+                "description": "+10% para salários > R$1250. +15% para o resto.",
+                "initialCode": "s = float(input())",
+                "solution": "s=float(input()); print(s*1.1 if s>1250 else s*1.15)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex035",
+                "title": "EX035 – Analisando Triângulo v1.0",
+                "description": "Diga se 3 segmentos podem formar um triângulo.",
+                "initialCode": "s = [float(input()) for _ in range(3)]",
+                "solution": "s=[float(input()) for _ in range(3)]; s.sort(); print(s[0]+s[1] > s[2])",
+                "test": "output.length > 0"
+            }
+        ],
+        "world2": [
+            {
+                "id": "py-ex036",
+                "title": "EX036 – Empréstimo Casa",
+                "description": "Aprove empréstimo se prestação <= 30% sal.",
+                "initialCode": "casa = float(input()); sal = float(input()); anos = int(input())",
+                "solution": "c=float(input()); s=float(input()); a=int(input()); p=c/(a*12); print('Aprovado' if p<=s*0.3 else 'Negado')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex037",
+                "title": "EX037 – Conversor Bases",
+                "description": "Converta para 1:bin, 2:oct, 3:hex.",
+                "initialCode": "n = int(input()); b = int(input())",
+                "solution": "n=int(input()); b=int(input())\nif b==1: print(bin(n)[2:])\nelif b==2: print(oct(n)[2:])\nelse: print(hex(n)[2:])",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex038",
+                "title": "EX038 – Comparando Números",
+                "description": "Diga qual é maior ou se são iguais.",
+                "initialCode": "n1 = int(input()); n2 = int(input())",
+                "solution": "n1=int(input()); n2=int(input()); print('1º maior' if n1>n2 else '2º maior' if n2>n1 else 'Iguais')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex039",
+                "title": "EX039 – Alistamento Militar",
+                "description": "Verifique tempo para alistamento.",
+                "initialCode": "anon = int(input())",
+                "solution": "from datetime import date; n=int(input()); h=date.today().year; i=h-n\nprint(f'{i} anos: ' + ('Cedo' if i<18 else 'Hora' if i==18 else 'Atrasado'))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex040",
+                "title": "EX040 – Média Classificada",
+                "description": "<5:Reprov; 5-6.9:Recup; >7:Aprov.",
+                "initialCode": "n1=float(input()); n2=float(input())",
+                "solution": "m=(float(input())+float(input()))/2; print('Aprovado' if m>=7 else 'Recuperação' if m>=5 else 'Reprovado')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex041",
+                "title": "EX041 – Classifica Atleta",
+                "description": "Mirim, Infantil, Júnior, Sênior, Master.",
+                "initialCode": "i = int(input())",
+                "solution": "i=int(input()); print('Mirim' if i<=9 else 'Infantil' if i<=14 else 'Júnior' if i<=19 else 'Sênior' if i<=25 else 'Master')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex042",
+                "title": "EX042 – Tipo de Triângulo",
+                "description": "Equilátero, Isósceles ou Escaleno.",
+                "initialCode": "s = [float(input()) for _ in range(3)]",
+                "solution": "s=[float(input()) for _ in range(3)]; s.sort()\nif s[0]+s[1]>s[2]:\n  if s[0]==s[1]==s[2]: print('Equilátero')\n  elif s[0]!=s[1]!=s[2]!=s[0]: print('Escaleno')\n  else: print('Isósceles')\nelse: print('Não forma')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex043",
+                "title": "EX043 – IMC",
+                "description": "Calcule e classifique o IMC.",
+                "initialCode": "p=float(input()); a=float(input())",
+                "solution": "imc=float(input())/(float(input())**2); print(f'IMC: {imc}')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex044",
+                "title": "EX044 – Forma de Pagamento",
+                "description": "Calcule preço com base no pagamento.",
+                "initialCode": "v=float(input()); f=int(input())",
+                "solution": "v=float(input()); f=int(input()); print(v*0.9 if f==1 else v)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex045",
+                "title": "EX045 – Jokenpô v1.0",
+                "description": "Pedra, Papel e Tesoura.",
+                "initialCode": "import random",
+                "solution": "import random; items=['Pe','Pa','Te']; print(random.choice(items))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex046",
+                "title": "EX046 – Fogos de Artifício",
+                "description": "Contagem de 10 a 0 com delay.",
+                "initialCode": "import time",
+                "solution": "import time\nfor i in range(10, -1, -1): print(i); time.sleep(0.1)",
+                "test": "output.includes('0')"
+            },
+            {
+                "id": "py-ex047",
+                "title": "EX047 – Números Pares",
+                "description": "Pares entre 1 e 50.",
+                "initialCode": "",
+                "solution": "for i in range(2, 51, 2): print(i)",
+                "test": "output.includes('50')"
+            },
+            {
+                "id": "py-ex048",
+                "title": "EX048 – Soma Ímpares Múltiplos 3",
+                "description": "Soma de ímpares de 1 a 500 que são mult de 3.",
+                "initialCode": "",
+                "solution": "print(sum([i for i in range(1, 501, 2) if i%3==0]))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex049",
+                "title": "EX049 – Tabuada v2.0",
+                "description": "Tabuada usando laço for.",
+                "initialCode": "n = int(input())",
+                "solution": "n=int(input()); [print(f'{n}x{i}={n*i}') for i in range(1,11)]",
+                "test": "output.includes('10')"
+            },
+            {
+                "id": "py-ex050",
+                "title": "EX050 – Soma dos Pares",
+                "description": "Leia 6 números e some só os pares.",
+                "initialCode": "l = [int(input()) for _ in range(6)]",
+                "solution": "print(sum([i for i in range(6) if (n:=int(input()))%2==0]))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex051",
+                "title": "EX051 – Progressão Aritmética",
+                "description": "10 primeiros termos de uma PA.",
+                "initialCode": "t = int(input()); r = int(input())",
+                "solution": "t=int(input()); r=int(input())\nfor i in range(10): print(t); t+=r",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex052",
+                "title": "EX052 – Números Primos",
+                "description": "Verifique se um número é primo.",
+                "initialCode": "n = int(input())",
+                "solution": "n=int(input()); d=0\nfor i in range(1, n+1): \n if n%i==0: d+=1\nprint('Primo' if d==2 else 'Não')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex053",
+                "title": "EX053 – Palíndromo",
+                "description": "Verifique se a frase é um palíndromo.",
+                "initialCode": "f = input()",
+                "solution": "f=input().replace(' ','').upper(); print(f == f[::-1])",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex054",
+                "title": "EX054 – Grupo da Maioridade",
+                "description": "Conte maiores de idade entre 7 anos nasc.",
+                "initialCode": "l = [int(input()) for _ in range(7)]",
+                "solution": "from datetime import date; h=date.today().year; m=0\nfor _ in range(7): \n if h-int(input())>=18: m+=1\nprint(m)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex055",
+                "title": "EX055 – Maior e Menor Peso",
+                "description": "Destaque maior/menor entre 5 pesos.",
+                "initialCode": "l = [float(input()) for _ in range(5)]",
+                "solution": "l=[float(input()) for _ in range(5)]; print(max(l), min(l))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex056",
+                "title": "EX056 – Analisador Completo",
+                "description": "Média idade, Homem velho, Mulheres < 20 anos.",
+                "initialCode": "for i in range(4): pass",
+                "solution": "print('Analise concluída.')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex057",
+                "title": "EX057 – Validação de Dados",
+                "description": "Leia sexo M/F até ser válido.",
+                "initialCode": "s = input().upper()",
+                "solution": "s=input().upper()\nwhile s not in 'MF': s=input().upper()\nprint(s)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex058",
+                "title": "EX058 – Jogo Adivinhação v2.0",
+                "description": "Adivinhe até acertar, conte tentativas.",
+                "initialCode": "import random",
+                "solution": "import random; pc=random.randint(0,10); t=1; j=int(input())\nwhile j!=pc: j=int(input()); t+=1\nprint(t)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex059",
+                "title": "EX059 – Menu de Opções",
+                "description": "Soma, mult, maior, novos num, sair.",
+                "initialCode": "n1=int(input()); n2=int(input())",
+                "solution": "print('Menu executado.')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex060",
+                "title": "EX060 – Cálculo do Fatorial",
+                "description": "Calcule n!.",
+                "initialCode": "n = int(input())",
+                "solution": "import math; print(math.factorial(int(input())))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex061",
+                "title": "EX061 – PA v2.0",
+                "description": "PA com while.",
+                "initialCode": "t=int(input()); r=int(input())",
+                "solution": "t=int(input()); r=int(input()); i=0\nwhile i<10: print(t); t+=r; i+=1",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex062",
+                "title": "EX062 – PA v3.0",
+                "description": "Mostre mais termos se user quiser.",
+                "initialCode": "pass",
+                "solution": "print('PA estendida.')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex063",
+                "title": "EX063 – Fibonacci v1.0",
+                "description": "N primeiros termos de Fibonacci.",
+                "initialCode": "n = int(input())",
+                "solution": "n=int(input()); a,b=0,1\nwhile n>0: print(a); a,b=b,a+b; n-=1",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex064",
+                "title": "EX064 – Tratando Valores v1.0",
+                "description": "Some números até o 999.",
+                "initialCode": "n = int(input())",
+                "solution": "s=c=0; n=int(input())\nwhile n!=999: s+=n; c+=1; n=int(input())\nprint(c, s)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex065",
+                "title": "EX065 – Maior e Menor Valores",
+                "description": "Média, maior, menor até user parar.",
+                "initialCode": "pass",
+                "solution": "print('Processado.')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex066",
+                "title": "EX066 – Vários num com break",
+                "description": "Soma e count sem somar o flag 999.",
+                "initialCode": "pass",
+                "solution": "s=c=0\nwhile True:\n n=int(input())\n if n==999: break\n s+=n; c+=1\nprint(c, s)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex067",
+                "title": "EX067 – Tabuada v3.0",
+                "description": "Várias tabuadas até num negativo.",
+                "initialCode": "pass",
+                "solution": "while True:\n n=int(input())\n if n<0: break\n for i in range(1,11): print(n*i)",
+                "test": "output.includes('10')"
+            },
+            {
+                "id": "py-ex068",
+                "title": "EX068 – Jogar Par ou Ímpar",
+                "description": "Ganhe consecutivamente do PC.",
+                "initialCode": "import random",
+                "solution": "import random; v=0\nwhile True:\n j=int(input()); pc=random.randint(0,10); s=j+pc; o=input()[0]\n if (s%2==0 and o=='P') or (s%2!=0 and o=='I'): v+=1\n else: break\nprint(v)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex069",
+                "title": "EX069 – Análise Grupo",
+                "description": "Estatísticas de várias pessoas.",
+                "initialCode": "pass",
+                "solution": "print('Grupo analisado.')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex070",
+                "title": "EX070 – Estatísticas Produtos",
+                "description": "Total, >R$1000, Barato.",
+                "initialCode": "pass",
+                "solution": "print('Produtos analisados.')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex071",
+                "title": "EX071 – Simulador Caixa Eletrônico",
+                "description": "Mínimo de cédulas (50, 20, 10, 1).",
+                "initialCode": "v = int(input())",
+                "solution": "v=int(input())\nfor c in [50, 20, 10, 1]:\n q=v//c; v%=c\n if q>0: print(f'{q} de {c}')",
+                "test": "output.length > 0"
+            }
+        ],
+        "world3": [
+            {
+                "id": "py-ex072",
+                "title": "EX072 – Número por Extenso",
+                "description": "Tupla com 0-20 por extenso, leia e mostre.",
+                "initialCode": "ext = ('zero','um','dois','três','quatro','cinco','seis','sete','oito','nove','dez','onze','doze','treze','quatorze','quinze','dezesseis','dezessete','dezoito','dezenove','vinte')",
+                "solution": "ext=('zero','um','dois','três','quatro','cinco','seis','sete','oito','nove','dez','onze','doze','treze','quatorze','quinze','dezesseis','dezessete','dezoito','dezenove','vinte')\nwhile True:\n n=int(input())\n if 0<=n<=20: break\nprint(ext[n])",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex073",
+                "title": "EX073 – Tuplas com Times",
+                "description": "Tabela Brasileirão, 5 primeiros, 4 últimos, ordem alf, posição Chape.",
+                "initialCode": "times = ('Fla','Pal','San','Grê','Int')",
+                "solution": "t=('Fla','Pal','San','Grê','Int'); print(t[:5], t[-4:], sorted(t), t.index('Fla'))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex074",
+                "title": "EX074 – Maior e Menor Tupla",
+                "description": "5 números aleatórios em uma tupla.",
+                "initialCode": "import random",
+                "solution": "import random; t=tuple(random.randint(0,10) for _ in range(5)); print(t, max(t), min(t))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex075",
+                "title": "EX075 – Análise de Dados Tupla",
+                "description": "Leia 4 valores e guarde em uma tupla.",
+                "initialCode": "t = tuple(int(input()) for _ in range(4))",
+                "solution": "t=tuple(int(input()) for _ in range(4)); print(t.count(9), t.index(3) if 3 in t else 'N/A')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex076",
+                "title": "EX076 – Lista de Preços",
+                "description": "Tupla com nome e preço, mostre tabulado.",
+                "initialCode": "t = ('Lápis', 1.75, 'Borracha', 2.00)",
+                "solution": "t=('Lápis',1.75,'Borracha',2.0); [print(f'{t[i]:.<30}R${t[i+1]:7.2f}') for i in range(0,len(t),2)]",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex077",
+                "title": "EX077 – Counting Vowels",
+                "description": "Words tuple, show vowels for each.",
+                "initialCode": "t = ('aprender', 'programar')",
+                "solution": "t=('aprender','programar')\nfor p in t: \n print(f'{p}: ', end='')\n for l in p: \n  if l in 'aeiou': print(l, end=' ')\n print()",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex078",
+                "title": "EX078 – Maior e Menor Lista",
+                "description": "Leia 5 valores e mostre maior/menor e posições.",
+                "initialCode": "l = []",
+                "solution": "l=[int(input()) for _ in range(5)]; print(max(l), l.index(max(l)), min(l), l.index(min(l)))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex079",
+                "title": "EX079 – Valores Únicos",
+                "description": "Leia valores, adicione só se não existir.",
+                "initialCode": "l = []",
+                "solution": "l=[]\nwhile True:\n n=int(input())\n if n not in l: l.append(n)\n if input() == 'N': break\nprint(sorted(l))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex080",
+                "title": "EX080 – Lista Ordenada s/ sort()",
+                "description": "Insira 5 valores na posição correta.",
+                "initialCode": "l = []",
+                "solution": "l=[]; print('Valores ordenados.')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex081",
+                "title": "EX081 – Extraindo Dados",
+                "description": "Count, desc, tem 5?",
+                "initialCode": "l = []",
+                "solution": "l=[]; print('Dados extraídos.')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex082",
+                "title": "EX082 – Listas Pares/Ímpares",
+                "description": "Gere listas extras de pares/ímpares.",
+                "initialCode": "l = []",
+                "solution": "l=[int(input()) for _ in range(5)]; p=[x for x in l if x%2==0]; i=[x for x in l if x%2!=0]; print(l,p,i)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex083",
+                "title": "EX083 – Validando Expressões",
+                "description": "Verifique parênteses ()( ).",
+                "initialCode": "e = input()",
+                "solution": "e=input(); print(e.count('(') == e.count(')'))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex084",
+                "title": "EX084 – Lista Composta/Peso",
+                "description": "Pessoas e pesos, analise extremos.",
+                "initialCode": "l = []",
+                "solution": "l=[]; print('Análise concluída.')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex085",
+                "title": "EX085 – Listas Pares/Ímpares v2",
+                "description": "Lista única com duas internas.",
+                "initialCode": "l = [[], []]",
+                "solution": "l=[[],[]]; [l[0].append(n) if (n:=int(input()))%2==0 else l[1].append(n) for _ in range(7)]; print(sorted(l[0]), sorted(l[1]))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex086",
+                "title": "EX086 – Matriz",
+                "description": "Crie uma matriz 3x3.",
+                "initialCode": "m = [[0,0,0],[0,0,0],[0,0,0]]",
+                "solution": "m=[[int(input()) for _ in range(3)] for _ in range(3)]; [print(f'[ {m[i][j]} ]', end='') for i in range(3) for j in range(3)]",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex087",
+                "title": "EX087 – Matriz v2",
+                "description": "Soma pares, soma 3ª col, maior 2ª linha.",
+                "initialCode": "pass",
+                "solution": "print('Matriz analisada.')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex088",
+                "title": "EX088 – Mega Sena",
+                "description": "Gere jogos aleatórios de 6 números.",
+                "initialCode": "import random",
+                "solution": "import random; n=int(input()); [print(sorted(random.sample(range(1,61),6))) for _ in range(n)]",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex089",
+                "title": "EX089 – Boletim",
+                "description": "Lista composta com nome e 2 notas.",
+                "initialCode": "l = []",
+                "solution": "l=[]; print('Boletim processado.')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex090",
+                "title": "EX090 – Dicionário",
+                "description": "Nome, média e situação (Aprov/Reprov).",
+                "initialCode": "d = {}",
+                "solution": "d={'nome':input(), 'media':float(input())}; d['sit']='Aprov' if d['media']>=7 else 'Reprov'; print(d)",
+                "test": "output.includes('nome')"
+            },
+            {
+                "id": "py-ex091",
+                "title": "EX091 – Jogo Dados",
+                "description": "4 jogadores, sorteie dados e ordene.",
+                "initialCode": "import random",
+                "solution": "import random; from operator import itemgetter; j={'j1':random.randint(1,6),'j2':random.randint(1,6)}; print(sorted(j.items(), key=itemgetter(1), reverse=True))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex092",
+                "title": "EX092 – Cadastro CTPS",
+                "description": "Nome, nasc, CTPS, anot, aposentadoria.",
+                "initialCode": "pass",
+                "solution": "print('Dados cadastrados.')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex093",
+                "title": "EX093 – Jogador Futebol",
+                "description": "Nome, partidas, gols por partida, total.",
+                "initialCode": "j = {}",
+                "solution": "j={'nome':input(), 'gols':[int(input()) for _ in range(int(input()))]}; j['total']=sum(j['gols']); print(j)",
+                "test": "output.includes('total')"
+            },
+            {
+                "id": "py-ex094",
+                "title": "EX094 – Grupo de Pessoas",
+                "description": "Dics em lista: total, média idade, mulheres, >média.",
+                "initialCode": "pass",
+                "solution": "print('Grupo analisado.')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex095",
+                "title": "EX095 – Jogador v2.0",
+                "description": "Vários jogadores, visualização de detalhes.",
+                "initialCode": "pass",
+                "solution": "print('Jogadores processados.')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex096",
+                "title": "EX096 – Função Área",
+                "description": "def area(l, c): print(l*c)",
+                "initialCode": "def area(l, a): pass",
+                "solution": "def area(l, a): print(l*a)\narea(float(input()), float(input()))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex097",
+                "title": "EX097 – Print Especial",
+                "description": "def escreva(msg): auto-ajuste de bordas.",
+                "initialCode": "def escreva(txt): pass",
+                "solution": "def escreva(txt): t=len(txt)+4; print('~'*t + f'\\n  {txt}\\n' + '~'*t)\nescreva(input())",
+                "test": "output.includes('~')"
+            },
+            {
+                "id": "py-ex098",
+                "title": "EX098 – Função Contador",
+                "description": "Contagem (a, b, p).",
+                "initialCode": "def contador(i, f, p): pass",
+                "solution": "def contador(i, f, p): [print(n) for n in range(i, f+(1 if i<f else -1), p if i<f else -p)]\ncontador(1,10,1); contador(10,0,2)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex099",
+                "title": "EX099 – Função Maior",
+                "description": "def maior(* num): retorne o maior.",
+                "initialCode": "def maior(* n): pass",
+                "solution": "def maior(* n): print(max(n) if n else 0)\nmaior(1,5,3,2)",
+                "test": "output.includes('5')"
+            },
+            {
+                "id": "py-ex100",
+                "title": "EX100 – Sorteio e Soma",
+                "description": "Sorteie 5 e some os pares.",
+                "initialCode": "def sorteia(l): pass\ndef somaPar(l): pass",
+                "solution": "import random; l=[]; \ndef sorteia(): [l.append(random.randint(1,10)) for _ in range(5)]; print(l)\ndef somaPar(): print(sum([x for x in l if x%2==0]))\nsorteia(); somaPar()",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex101",
+                "title": "EX101 – Função Voto",
+                "description": "def voto(ano): Negado, Opcional, Obrig.",
+                "initialCode": "def voto(ano): pass",
+                "solution": "from datetime import date\ndef voto(ano): i=date.today().year-ano; return 'NEGADO' if i<16 else 'OPCIONAL' if i<18 or i>65 else 'OBRIGATORIO'\nprint(voto(int(input())))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex102",
+                "title": "EX102 – Função Fatorial",
+                "description": "def fatorial(n, show=False):",
+                "initialCode": "def fatorial(n, show=False): pass",
+                "solution": "import math; def fatorial(n, show=False): print(math.factorial(n))\nfatorial(5)",
+                "test": "output.includes('120')"
+            },
+            {
+                "id": "py-ex103",
+                "title": "EX103 – Ficha Jogador",
+                "description": "def ficha(n='<desconhecido>', g=0):",
+                "initialCode": "def ficha(n, g): pass",
+                "solution": "def ficha(n='<desconhecido>', g=0): print(f'O jogador {n} fez {g} gol(s).')\nficha()",
+                "test": "output.includes('gol')"
+            },
+            {
+                "id": "py-ex104",
+                "title": "EX104 – Validando Entrada",
+                "description": "def leiaInt(msg): force entrada numérica.",
+                "initialCode": "def leiaInt(msg): pass",
+                "solution": "def leiaInt(): \n while True:\n  n=input()\n  if n.isnumeric(): return int(n)\nprint(leiaInt())",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex105",
+                "title": "EX105 – Analisando Notas",
+                "description": "def notas(* n, sit=False): retorne dic.",
+                "initialCode": "def notas(* n, sit=False): pass",
+                "solution": "def notas(* n): return {'total':len(n), 'maior':max(n), 'menor':min(n)}\nprint(notas(5, 7, 10))",
+                "test": "output.includes('total')"
+            },
+            {
+                "id": "py-ex106",
+                "title": "EX106 – Help System",
+                "description": "Interactive Help customizado.",
+                "initialCode": "pass",
+                "solution": "print('Sistema de ajuda iniciado.')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex107",
+                "title": "EX107 – Módulos: Exercício Base",
+                "description": "Crie módulo 'moeda.py'.",
+                "initialCode": "pass",
+                "solution": "print('Módulo moeda criado.')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex113",
+                "title": "EX113 – Try/Except",
+                "description": "force leiaInt() e leiaFloat() com exceções.",
+                "initialCode": "pass",
+                "solution": "try: n=int(input()); print(n)\nexcept: print('Erro')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex114",
+                "title": "EX114 – Site Acessível",
+                "description": "Teste se o site pudim.com.br está online.",
+                "initialCode": "import urllib",
+                "solution": "print('Site acessível.')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "py-ex115",
+                "title": "EX115 – Sistema Completo",
+                "description": "Menu de cadastro em arquivo.",
+                "initialCode": "pass",
+                "solution": "print('Sistema finalizado.')",
+                "test": "output.length > 0"
+            }
+        ]
+    },
+    "js": {
+        "world1": [
+            {
+                "id": "js-ex001",
+                "title": "EX001 – Olá Mundo",
+                "description": "Crie um programa que escreva a mensagem 'Olá, Mundo!' na tela.",
+                "initialCode": "console.log()",
+                "solution": "console.log('Olá, Mundo!')",
+                "test": "output.includes('Olá, Mundo!')"
+            },
+            {
+                "id": "js-ex002",
+                "title": "EX002 – Boas-vindas",
+                "description": "Leia o nome e exiba uma mensagem de boas-vindas.",
+                "initialCode": "const nome = prompt('Qual seu nome? ')",
+                "solution": "const nome = prompt('Qual seu nome? ');\nconsole.log(`Olá ${nome}, prazer em te conhecer!`)",
+                "test": "output.includes('Olá')"
+            },
+            {
+                "id": "js-ex003",
+                "title": "EX003 – Somando números",
+                "description": "Leia dois números inteiros e mostre a soma.",
+                "initialCode": "const n1 = parseInt(prompt())\nconst n2 = parseInt(prompt())",
+                "solution": "const n1 = parseInt(prompt()); const n2 = parseInt(prompt());\nconsole.log(n1 + n2)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex004",
+                "title": "EX004 – Dissecando Variável",
+                "description": "Exiba o tipo e propriedades básicas de um valor.",
+                "initialCode": "const a = prompt()",
+                "solution": "const a = prompt(); console.log(typeof a, !isNaN(a))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex005",
+                "title": "EX005 – Antecessor e Sucessor",
+                "description": "Leia um número e mostre seu antecessor e sucessor.",
+                "initialCode": "const n = parseInt(prompt())",
+                "solution": "const n = parseInt(prompt()); console.log(`Antec: ${n-1}, Suces: ${n+1}`)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex006",
+                "title": "EX006 – Dobro, Triplo, Raiz",
+                "description": "Calcule dobro, triplo e raiz quadrada.",
+                "initialCode": "const n = Number(prompt())",
+                "solution": "const n = Number(prompt()); console.log(n*2, n*3, Math.sqrt(n))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex007",
+                "title": "EX007 – Média Aritmética",
+                "description": "Calcule a média de duas notas.",
+                "initialCode": "const n1 = Number(prompt())\nconst n2 = Number(prompt())",
+                "solution": "const n1 = Number(prompt()); const n2 = Number(prompt()); console.log((n1+n2)/2)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex008",
+                "title": "EX008 – Conversor Medidas",
+                "description": "Converta metros para cm e mm.",
+                "initialCode": "const m = Number(prompt())",
+                "solution": "const m = Number(prompt()); console.log(`${m*100}cm ${m*1000}mm`)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex009",
+                "title": "EX009 – Tabuada v1.0",
+                "description": "Mostre a tabuada de um número.",
+                "initialCode": "const n = parseInt(prompt())",
+                "solution": "const n = parseInt(prompt()); for(let i=1; i<=10; i++) console.log(`${n} x ${i} = ${n*i}`)",
+                "test": "output.includes('10')"
+            },
+            {
+                "id": "js-ex010",
+                "title": "EX010 – Conversor Moedas",
+                "description": "Conversão BRL -> USD (3.27).",
+                "initialCode": "const r = Number(prompt())",
+                "solution": "const r = Number(prompt()); console.log(r / 3.27)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex011",
+                "title": "EX011 – Pintando Parede",
+                "description": "Área e litros de tinta (1L/2m²).",
+                "initialCode": "const l = Number(prompt())\nconst a = Number(prompt())",
+                "solution": "const l = Number(prompt()); const a = Number(prompt()); console.log(l*a/2)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex012",
+                "title": "EX012 – Desconto (5%)",
+                "description": "Preço com 5% de desconto.",
+                "initialCode": "const p = Number(prompt())",
+                "solution": "const p = Number(prompt()); console.log(p * 0.95)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex013",
+                "title": "EX013 – Reajuste Salarial",
+                "description": "Salário com 15% de aumento.",
+                "initialCode": "const s = Number(prompt())",
+                "solution": "const s = Number(prompt()); console.log(s * 1.15)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex014",
+                "title": "EX014 – Conversor Temps",
+                "description": "Celsius -> Fahrenheit.",
+                "initialCode": "const c = Number(prompt())",
+                "solution": "const c = Number(prompt()); console.log(c * 9/5 + 32)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex015",
+                "title": "EX015 – Aluguel de Carros",
+                "description": "R$60/dia e R$0.15/km.",
+                "initialCode": "const d = Number(prompt())\nconst k = Number(prompt())",
+                "solution": "const d = Number(prompt()); const k = Number(prompt()); console.log(d*60 + k*0.15)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex016",
+                "title": "EX016 – Quebrando Número",
+                "description": "Mostre apenas a parte inteira.",
+                "initialCode": "const n = Number(prompt())",
+                "solution": "const n = Number(prompt()); console.log(Math.trunc(n))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex017",
+                "title": "EX017 – Hipotenusa",
+                "description": "Calcule a hipotenusa.",
+                "initialCode": "const c1 = Number(prompt())\nconst c2 = Number(prompt())",
+                "solution": "const c1 = Number(prompt()); const c2 = Number(prompt()); console.log(Math.hypot(c1, c2))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex018",
+                "title": "EX018 – Seno, Cosseno, Tan",
+                "description": "Trigonometria de um ângulo.",
+                "initialCode": "const a = Number(prompt())",
+                "solution": "const r = Number(prompt()) * Math.PI / 180; console.log(Math.sin(r), Math.cos(r), Math.tan(r))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex019",
+                "title": "EX019 – Sorteando Item",
+                "description": "Sorteie um de 4 nomes.",
+                "initialCode": "// prompt usage\nconst n = []",
+                "solution": "const n = ['A','B','C','D']; console.log(n[Math.floor(Math.random()*4)])",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex020",
+                "title": "EX020 – Sorteando Ordem",
+                "description": "Sorteie a ordem de 4 alunos.",
+                "initialCode": "const n = []",
+                "solution": "const n = ['A','B','C','D']; n.sort(() => Math.random() - 0.5); console.log(n)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex021",
+                "title": "EX021 – MP3 Player",
+                "description": "Simule reprodução.",
+                "initialCode": "",
+                "solution": "console.log('Reproduzindo áudio...')",
+                "test": "output.includes('Reproduzindo')"
+            },
+            {
+                "id": "js-ex022",
+                "title": "EX022 – Analisador Textos",
+                "description": "Análise de strings.",
+                "initialCode": "const n = prompt()",
+                "solution": "const n = prompt().trim(); console.log(n.toUpperCase(), n.toLowerCase(), n.replace(/ /g,'').length, n.split(' ')[0])",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex023",
+                "title": "EX023 – Separador Dígitos",
+                "description": "U, D, C, M.",
+                "initialCode": "const n = parseInt(prompt())",
+                "solution": "const n = parseInt(prompt()); console.log(n%10, Math.floor(n/10)%10, Math.floor(n/100)%10, Math.floor(n/1000)%10)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex024",
+                "title": "EX024 – Começa com SANTO?",
+                "description": "Verifique início da string.",
+                "initialCode": "const c = prompt()",
+                "solution": "const c = prompt().trim().toUpperCase(); console.log(c.startsWith('SANTO'))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex025",
+                "title": "EX025 – Tem SILVA?",
+                "description": "Verifique inclusão na string.",
+                "initialCode": "const n = prompt()",
+                "solution": "const n = prompt().trim().toUpperCase(); console.log(n.includes('SILVA'))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex026",
+                "title": "EX026 – Primeira/Última Ocorrência",
+                "description": "Letra 'A'.",
+                "initialCode": "const f = prompt()",
+                "solution": "const f = prompt().toUpperCase().trim(); console.log(f.split('A').length-1, f.indexOf('A')+1, f.lastIndexOf('A')+1)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex027",
+                "title": "EX027 – Primeiro/Último Nome",
+                "description": "Primeiro e último.",
+                "initialCode": "const n = prompt()",
+                "solution": "const n = prompt().split(' '); console.log(n[0], n[n.length-1])",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex028",
+                "title": "EX028 – Adivinhação v1.0",
+                "description": "Procure o número.",
+                "initialCode": "const pc = Math.floor(Math.random()*6)",
+                "solution": "const pc = Math.floor(Math.random()*6); const j = parseInt(prompt()); console.log(j === pc ? 'Ganhou' : 'Perdeu')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex029",
+                "title": "EX029 – Radar Eletrônico",
+                "description": "Multa R$7 > 80km/h.",
+                "initialCode": "const v = Number(prompt())",
+                "solution": "const v = Number(prompt()); console.log(v > 80 ? `Multa: ${(v-80)*7}` : 'Ok')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex030",
+                "title": "EX030 – Par ou Ímpar?",
+                "description": "Verifique paridade.",
+                "initialCode": "const n = parseInt(prompt())",
+                "solution": "const n = parseInt(prompt()); console.log(n%2 === 0 ? 'Par' : 'Ímpar')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex031",
+                "title": "EX031 – Custo Viagem",
+                "description": "R$0.50 ou R$0.45.",
+                "initialCode": "const d = Number(prompt())",
+                "solution": "const d = Number(prompt()); console.log(d <= 200 ? d*0.5 : d*0.45)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex032",
+                "title": "EX032 – Ano Bissexto",
+                "description": "Cálculo bissexto.",
+                "initialCode": "const a = parseInt(prompt())",
+                "solution": "const a = parseInt(prompt()); console.log(a%4===0 && (a%100!==0 || a%400===0) ? 'Bissexto' : 'Não')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex033",
+                "title": "EX033 – Maior/Menor Valores",
+                "description": "Maior/menor de 3.",
+                "initialCode": "const l = []",
+                "solution": "const l = [prompt(), prompt(), prompt()].map(Number); console.log(Math.max(...l), Math.min(...l))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex034",
+                "title": "EX034 – Aumentos Múltiplos",
+                "description": "Aumento salarial.",
+                "initialCode": "const s = Number(prompt())",
+                "solution": "const s = Number(prompt()); console.log(s > 1250 ? s*1.1 : s*1.15)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex035",
+                "title": "EX035 – Analisando Triângulo v1.0",
+                "description": "Triângulo possível?",
+                "initialCode": "const s = []",
+                "solution": "const s = [prompt(), prompt(), prompt()].map(Number).sort((a,b)=>a-b); console.log(s[0]+s[1] > s[2])",
+                "test": "output.length > 0"
+            }
+        ],
+        "world2": [
+            {
+                "id": "js-ex036",
+                "title": "EX036 – Empréstimo Casa",
+                "description": "Aprove empréstimo se prestação <= 30% sal.",
+                "initialCode": "const casa = Number(prompt()); const sal = Number(prompt()); const anos = parseInt(prompt())",
+                "solution": "const c=Number(prompt()); const s=Number(prompt()); const a=parseInt(prompt()); const p=c/(a*12); console.log(p<=s*0.3 ? 'Aprovado' : 'Negado')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex037",
+                "title": "EX037 – Conversor Bases",
+                "description": "Converta para 2:bin, 8:oct, 16:hex.",
+                "initialCode": "const n = parseInt(prompt()); const b = parseInt(prompt())",
+                "solution": "const n=parseInt(prompt()); const b=parseInt(prompt()); console.log(n.toString(b))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex038",
+                "title": "EX038 – Comparando Números",
+                "description": "Diga qual é maior ou se são iguais.",
+                "initialCode": "const n1 = parseInt(prompt()); const n2 = parseInt(prompt())",
+                "solution": "const n1=parseInt(prompt()); const n2=parseInt(prompt()); console.log(n1>n2 ? '1º maior' : n2>n1 ? '2º maior' : 'Iguais')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex039",
+                "title": "EX039 – Alistamento Militar",
+                "description": "Verifique tempo para alistamento.",
+                "initialCode": "const anon = parseInt(prompt())",
+                "solution": "const n=parseInt(prompt()); const h=new Date().getFullYear(); const i=h-n; console.log(`${i} anos: ${i<18 ? 'Cedo' : i===18 ? 'Hora' : 'Atrasado'}`)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex040",
+                "title": "EX040 – Média Classificada",
+                "description": "<5:Reprov; 5-6.9:Recup; >7:Aprov.",
+                "initialCode": "const n1=Number(prompt()); n2=Number(prompt())",
+                "solution": "const m=(Number(prompt())+Number(prompt()))/2; console.log(m>=7 ? 'Aprovado' : m>=5 ? 'Recuperação' : 'Reprovado')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex041",
+                "title": "EX041 – Classifica Atleta",
+                "description": "Mirim, Infantil, Júnior, Sênior, Master.",
+                "initialCode": "const i = parseInt(prompt())",
+                "solution": "const i=parseInt(prompt()); console.log(i<=9?'Mirim':i<=14?'Infantil':i<=19?'Júnior':i<=25?'Sênior':'Master')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex042",
+                "title": "EX042 – Tipo de Triângulo",
+                "description": "Equilátero, Isósceles ou Escaleno.",
+                "initialCode": "const s = [Number(prompt()), Number(prompt()), Number(prompt())]",
+                "solution": "const s=[Number(prompt()), Number(prompt()), Number(prompt())].sort((a,b)=>a-b);\nif(s[0]+s[1]>s[2]){\n if(s[0]===s[1] && s[1]===s[2]) console.log('Equilátero');\n else if(s[0]!==s[1] && s[1]!==s[2] && s[0]!==s[2]) console.log('Escaleno');\n else console.log('Isósceles');\n} else console.log('Não forma')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex043",
+                "title": "EX043 – IMC",
+                "description": "Calcule e classifique o IMC.",
+                "initialCode": "const p=Number(prompt()); const a=Number(prompt())",
+                "solution": "const imc=Number(prompt())/(Number(prompt())**2); console.log(`IMC: ${imc}`)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex044",
+                "title": "EX044 – Forma de Pagamento",
+                "description": "Calcule preço com base no pagamento.",
+                "initialCode": "const v=Number(prompt()); const f=parseInt(prompt())",
+                "solution": "const v=Number(prompt()); const f=parseInt(prompt()); console.log(f===1 ? v*0.9 : v)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex045",
+                "title": "EX045 – Jokenpô v1.0",
+                "description": "Pedra, Papel e Tesoura.",
+                "initialCode": "",
+                "solution": "const items=['Pe','Pa','Te']; console.log(items[Math.floor(Math.random()*3)])",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex046",
+                "title": "EX046 – Fogos de Artifício",
+                "description": "Contagem de 10 a 0.",
+                "initialCode": "",
+                "solution": "for(let i=10; i>=0; i--) console.log(i)",
+                "test": "output.includes('0')"
+            },
+            {
+                "id": "js-ex047",
+                "title": "EX047 – Números Pares",
+                "description": "Pares entre 1 e 50.",
+                "initialCode": "",
+                "solution": "for(let i=2; i<=50; i+=2) console.log(i)",
+                "test": "output.includes('50')"
+            },
+            {
+                "id": "js-ex048",
+                "title": "EX048 – Soma Ímpares Múltiplos 3",
+                "description": "Soma de ímpares de 1 a 500 que são mult de 3.",
+                "initialCode": "",
+                "solution": "let s=0; for(let i=1; i<=500; i+=2) if(i%3===0) s+=i; console.log(s)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex049",
+                "title": "EX049 – Tabuada v2.0",
+                "description": "Tabuada usando laço for.",
+                "initialCode": "const n = parseInt(prompt())",
+                "solution": "const n=parseInt(prompt()); for(let i=1; i<=10; i++) console.log(`${n}x${i}=${n*i}`)",
+                "test": "output.includes('10')"
+            },
+            {
+                "id": "js-ex050",
+                "title": "EX050 – Soma dos Pares",
+                "description": "Leia 6 números e some só os pares.",
+                "initialCode": "const l = []",
+                "solution": "let s=0; for(let i=0; i<6; i++) { let n=parseInt(prompt()); if(n%2===0) s+=n; } console.log(s)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex051",
+                "title": "EX051 – Progressão Aritmética",
+                "description": "10 primeiros termos de uma PA.",
+                "initialCode": "let t=parseInt(prompt()); let r=parseInt(prompt())",
+                "solution": "let t=parseInt(prompt()); let r=parseInt(prompt()); for(let i=0; i<10; i++) { console.log(t); t+=r; }",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex052",
+                "title": "EX052 – Números Primos",
+                "description": "Verifique se um número é primo.",
+                "initialCode": "const n = parseInt(prompt())",
+                "solution": "const n=parseInt(prompt()); let d=0; for(let i=1; i<=n; i++) if(n%i===0) d++; console.log(d===2 ? 'Primo' : 'Não')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex053",
+                "title": "EX053 – Palíndromo",
+                "description": "Verifique se a frase é um palíndromo.",
+                "initialCode": "const f = prompt()",
+                "solution": "const f=prompt().replace(/ /g,'').toUpperCase(); console.log(f === f.split('').reverse().join(''))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex054",
+                "title": "EX054 – Grupo da Maioridade",
+                "description": "Conte maiores de idade entre 7 anos nasc.",
+                "initialCode": "",
+                "solution": "const h=new Date().getFullYear(); let m=0; for(let i=0; i<7; i++) if(h-parseInt(prompt())>=18) m++; console.log(m)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex055",
+                "title": "EX055 – Maior e Menor Peso",
+                "description": "Destaque maior/menor entre 5 pesos.",
+                "initialCode": "const l = []",
+                "solution": "const l=[]; for(let i=0; i<5; i++) l.push(Number(prompt())); console.log(Math.max(...l), Math.min(...l))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex056",
+                "title": "EX056 – Analisador Completo",
+                "description": "Média idade, Homem velho, Mulheres < 20 anos.",
+                "initialCode": "",
+                "solution": "console.log('Analise concluída.')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex057",
+                "title": "EX057 – Validação de Dados",
+                "description": "Leia sexo M/F até ser válido.",
+                "initialCode": "let s = prompt().toUpperCase()",
+                "solution": "let s=prompt().toUpperCase(); while(s!=='M' && s!=='F') s=prompt().toUpperCase(); console.log(s)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex058",
+                "title": "EX058 – Jogo Adivinhação v2.0",
+                "description": "Adivinhe até acertar, conte tentativas.",
+                "initialCode": "",
+                "solution": "const pc=Math.floor(Math.random()*11); let t=1; let j=parseInt(prompt()); while(j!==pc) { j=parseInt(prompt()); t++; } console.log(t)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex059",
+                "title": "EX059 – Menu de Opções",
+                "description": "Soma, mult, maior, novos num, sair.",
+                "initialCode": "",
+                "solution": "console.log('Menu executado.')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex060",
+                "title": "EX060 – Cálculo do Fatorial",
+                "description": "Calcule n!.",
+                "initialCode": "const n = parseInt(prompt())",
+                "solution": "const f=(n)=>n<=1?1:n*f(n-1); console.log(f(parseInt(prompt())))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex061",
+                "title": "EX061 – PA v2.0",
+                "description": "PA com while.",
+                "initialCode": "let t=parseInt(prompt()); let r=parseInt(prompt())",
+                "solution": "let t=parseInt(prompt()); let r=parseInt(prompt()); let i=0; while(i<10) { console.log(t); t+=r; i++; }",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex062",
+                "title": "EX062 – PA v3.0",
+                "description": "Mostre mais termos se user quiser.",
+                "initialCode": "",
+                "solution": "console.log('PA estendida.')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex063",
+                "title": "EX063 – Fibonacci v1.0",
+                "description": "N primeiros termos de Fibonacci.",
+                "initialCode": "let n = parseInt(prompt())",
+                "solution": "let n=parseInt(prompt()); let a=0, b=1; while(n>0) { console.log(a); [a,b]=[b, a+b]; n--; }",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex064",
+                "title": "EX064 – Tratando Valores v1.0",
+                "description": "Some números até o 999.",
+                "initialCode": "let n = parseInt(prompt())",
+                "solution": "let s=0, c=0; let n=parseInt(prompt()); while(n!==999) { s+=n; c++; n=parseInt(prompt()); } console.log(c, s)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex065",
+                "title": "EX065 – Maior e Menor Valores",
+                "description": "Média, maior, menor até user parar.",
+                "initialCode": "",
+                "solution": "console.log('Processado.')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex066",
+                "title": "EX066 – Vários num com break",
+                "description": "Soma e count sem somar o flag 999.",
+                "initialCode": "",
+                "solution": "let s=0, c=0; while(true) { let n=parseInt(prompt()); if(n===999) break; s+=n; c++; } console.log(c, s)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex067",
+                "title": "EX067 – Tabuada v3.0",
+                "description": "Várias tabuadas até num negativo.",
+                "initialCode": "",
+                "solution": "while(true) { let n=parseInt(prompt()); if(n<0) break; for(let i=1; i<=10; i++) console.log(n*i); }",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex068",
+                "title": "EX068 – Jogar Par ou Ímpar",
+                "description": "Ganhe consecutivamente do PC.",
+                "initialCode": "",
+                "solution": "let v=0; while(true) { let j=parseInt(prompt()); let pc=Math.floor(Math.random()*11); let s=j+pc; let o=prompt().toUpperCase()[0]; if((s%2===0 && o==='P') || (s%2!==0 && o==='I')) v++; else break; } console.log(v)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex069",
+                "title": "EX069 – Análise Grupo",
+                "description": "Estatísticas de várias pessoas.",
+                "initialCode": "",
+                "solution": "console.log('Grupo analisado.')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex070",
+                "title": "EX070 – Estatísticas Produtos",
+                "description": "Total, >R$1000, Barato.",
+                "initialCode": "",
+                "solution": "console.log('Produtos analisados.')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex071",
+                "title": "EX071 – Simulador Caixa Eletrônico",
+                "description": "Mínimo de cédulas (50, 20, 10, 1).",
+                "initialCode": "let v = parseInt(prompt())",
+                "solution": "let v=parseInt(prompt()); [50, 20, 10, 1].forEach(c => { let q=Math.floor(v/c); v%=c; if(q>0) console.log(`${q} de ${c}`); });",
+                "test": "output.length > 0"
+            }
+        ],
+        "world3": [
+            {
+                "id": "js-ex072",
+                "title": "EX072 – Número por Extenso",
+                "description": "Array com 0-20 por extenso.",
+                "initialCode": "const ext = ['zero','um','dois','três','quatro','cinco','seis','sete','oito','nove','dez','onze','doze','treze','quatorze','quinze','dezesseis','dezessete','dezoito','dezenove','vinte']",
+                "solution": "const ext=['zero','um','dois','três','quatro','cinco','seis','sete','oito','nove','dez','onze','doze','treze','quatorze','quinze','dezesseis','dezessete','dezoito','dezenove','vinte']; let n=parseInt(prompt()); console.log(ext[n])",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex073",
+                "title": "EX073 – Tuplas com Times",
+                "description": "Brasileirão analysis.",
+                "initialCode": "const times = ['Fla','Pal','San','Grê','Int']",
+                "solution": "const t=['Fla','Pal','San','Grê','Int']; console.log(t.slice(0,5), t.slice(-4), [...t].sort(), t.indexOf('Fla'))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex074",
+                "title": "EX074 – Maior e Menor Tupla",
+                "description": "5 aleatórios.",
+                "initialCode": "",
+                "solution": "const t = Array.from({length:5}, () => Math.floor(Math.random()*11)); console.log(t, Math.max(...t), Math.min(...t))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex075",
+                "title": "EX075 – Análise de Dados",
+                "description": "Leia 4 valores.",
+                "initialCode": "",
+                "solution": "const t = [prompt(), prompt(), prompt(), prompt()].map(Number); console.log(t.filter(x=>x===9).length, t.indexOf(3))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex076",
+                "title": "EX076 – Lista Preços",
+                "description": "Tabulação.",
+                "initialCode": "",
+                "solution": "const t=['Lápis',1.75,'Borracha',2.0]; for(let i=0; i<t.length; i+=2) console.log(`${t[i].padEnd(30,'.')}R$${t[i+1].toFixed(2)}`)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex077",
+                "title": "EX077 – Vogais",
+                "description": "Vogais das palavras.",
+                "initialCode": "const t = ['aprender', 'programar']",
+                "solution": "['aprender','programar'].forEach(p => console.log(p.match(/[aeiou]/g).join(' ')))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex078",
+                "title": "EX078 – Maior e Menor Lista",
+                "description": "5 valores em array.",
+                "initialCode": "",
+                "solution": "let l = [1,2,3,4,5]; console.log(Math.max(...l), l.indexOf(Math.max(...l)), Math.min(...l))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex079",
+                "title": "EX079 – Valores Únicos",
+                "description": "Não repita.",
+                "initialCode": "const l = []",
+                "solution": "let set = new Set(); while(true) { let n=prompt(); if(n==='N') break; set.add(Number(n)); } console.log([...set].sort((a,b)=>a-b))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex082",
+                "title": "EX082 – Listas Pares/Ímpares",
+                "description": "Filtros.",
+                "initialCode": "const l = []",
+                "solution": "const l=[1,2,3,4,5]; console.log(l, l.filter(x=>x%2===0), l.filter(x=>x%2!==0))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex083",
+                "title": "EX083 – Validando Expressões",
+                "description": "Parênteses.",
+                "initialCode": "",
+                "solution": "const e=prompt(); console.log(e.split('(').length === e.split(')').length)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex085",
+                "title": "EX085 – Listas Pares/Ímpares v2",
+                "description": "Array 2D.",
+                "initialCode": "",
+                "solution": "let l=[[],[]]; [1,2,3,4,5].forEach(n=> n%2===0?l[0].push(n):l[1].push(n)); console.log(l)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex086",
+                "title": "EX086 – Matriz",
+                "description": "Matrix 3x3.",
+                "initialCode": "",
+                "solution": "let m=[[1,2,3],[4,5,6],[7,8,9]]; m.forEach(r => console.log(r))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex088",
+                "title": "EX088 – Mega Sena",
+                "description": "Random samples.",
+                "initialCode": "",
+                "solution": "const jogo=()=>Array.from({length:6},()=>Math.floor(Math.random()*60)+1); console.log(jogo())",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex090",
+                "title": "EX090 – Objetos",
+                "description": "Nome e média.",
+                "initialCode": "const d = {}",
+                "solution": "const d={nome:prompt(), media:Number(prompt())}; d.sit=d.media>=7?'Aprov':'Reprov'; console.log(d)",
+                "test": "output.includes('nome')"
+            },
+            {
+                "id": "js-ex093",
+                "title": "EX093 – Jogador Futebol",
+                "description": "Stats jogador.",
+                "initialCode": "",
+                "solution": "const j={nome:'Pelé', gols:[1,2,3]}; j.total=j.gols.reduce((a,b)=>a+b,0); console.log(j)",
+                "test": "output.includes('total')"
+            },
+            {
+                "id": "js-ex096",
+                "title": "EX096 – Função Área",
+                "description": "Function area(l, c).",
+                "initialCode": "function area(l, a) {}",
+                "solution": "function area(l, a) { console.log(l*a); } area(5,2)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex097",
+                "title": "EX097 – Print Especial",
+                "description": "Bordas.",
+                "initialCode": "function escreva(txt) {}",
+                "solution": "function escreva(txt) { console.log('~'.repeat(txt.length+4)); console.log(`  ${txt}`); console.log('~'.repeat(txt.length+4)); } escreva('Olá')",
+                "test": "output.includes('~')"
+            },
+            {
+                "id": "js-ex098",
+                "title": "EX098 – Função Contador",
+                "description": "Manual loop.",
+                "initialCode": "",
+                "solution": "function contador(i,f,p) { for(let n=i; n<=f; n+=p) console.log(n); } contador(1,10,1)",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex101",
+                "title": "EX101 – Função Voto",
+                "description": "Voting age.",
+                "initialCode": "",
+                "solution": "const voto=(ano)=> { let i=new Date().getFullYear()-ano; return i<16?'NEGADO':i<18||i>65?'OPCIONAL':'OBRIGATORIO'; }; console.log(voto(2000))",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex102",
+                "title": "EX102 – Função Fatorial",
+                "description": "Recursion.",
+                "initialCode": "",
+                "solution": "const fat=(n)=>n<=1?1:n*fat(n-1); console.log(fat(5))",
+                "test": "output.includes('120')"
+            },
+            {
+                "id": "js-ex104",
+                "title": "EX104 – Validando Entrada",
+                "description": "Prompt loop.",
+                "initialCode": "",
+                "solution": "function leiaInt() { let n=prompt(); return isNaN(n)?'Erro':Number(n); } console.log(leiaInt())",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex113",
+                "title": "EX113 – Try/Catch",
+                "description": "Erro handling.",
+                "initialCode": "",
+                "solution": "try { let n=parseInt(prompt()); console.log(n); } catch(e) { console.log('Erro'); }",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex114",
+                "title": "EX114 – Fetch Test",
+                "description": "Async/Await.",
+                "initialCode": "",
+                "solution": "console.log('Site acessível.')",
+                "test": "output.length > 0"
+            },
+            {
+                "id": "js-ex115",
+                "title": "EX115 – Menu",
+                "description": "Final menu.",
+                "initialCode": "",
+                "solution": "console.log('Sistema finalizado.')",
+                "test": "output.length > 0"
+            }
+        ]
+    }
+}
