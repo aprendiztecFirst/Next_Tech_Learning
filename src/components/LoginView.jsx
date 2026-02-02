@@ -23,7 +23,9 @@ const LoginView = ({ onLogin, lang = 'pt' }) => {
         setError('');
 
         if (!supabase) {
-            setError(lang === 'pt' ? 'Configuração do Supabase ausente no .env.local' : 'Supabase configuration missing in .env.local');
+            setError(lang === 'pt'
+                ? 'Configuração do Supabase ausente. Verifique se as variáveis no Vercel começam com NEXT_PUBLIC_'
+                : 'Supabase configuration missing. Ensure Vercel variables start with NEXT_PUBLIC_');
             setIsLoading(false);
             return;
         }
