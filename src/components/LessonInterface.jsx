@@ -215,9 +215,9 @@ json.dumps(run_test(), default=str)
     };
 
     return (
-        <div className="flex flex-1 h-full overflow-hidden">
+        <div className="flex flex-col md:flex-row flex-1 h-full overflow-hidden">
             {/* Left Pane - Instructions */}
-            <div className="w-1/3 p-0 overflow-y-auto border-r border-slate-800 bg-[#161616] custom-scrollbar flex flex-col">
+            <div className="w-full md:w-1/3 p-0 overflow-y-auto border-b md:border-b-0 md:border-r border-slate-800 bg-[#161616] custom-scrollbar flex flex-col max-h-[40%] md:max-h-full">
                 {/* Fixed Header */}
                 <div className="p-4 border-b border-white/5 bg-[#1a1a1a]">
                     <h2 className="text-xl font-bold text-white flex items-center gap-2">

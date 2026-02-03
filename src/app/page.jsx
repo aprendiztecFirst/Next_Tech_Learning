@@ -13,6 +13,7 @@ import GoalsView from '@/components/GoalsView';
 import DailyChallengeView from '@/components/DailyChallengeView';
 import LeaderboardView from '@/components/LeaderboardView';
 import LogoutView from '@/components/LogoutView';
+import MobileNav from '@/components/MobileNav';
 
 
 import coursesData from '@/data/courses.json';
@@ -305,7 +306,7 @@ export default function Home() {
       />
 
 
-      <div className="flex-1 flex overflow-hidden relative">
+      <div className="flex-1 flex overflow-hidden relative pb-16 md:pb-0">
         {view === 'journey' && (
           <JourneyMap
             courses={filteredCourses}
@@ -380,6 +381,12 @@ export default function Home() {
       </div>
 
       {(view === 'journey' || view === 'worlds') && <RightSidebar lang={interfaceLanguage} />}
+
+      <MobileNav
+        currentView={view}
+        onViewChange={handleViewChange}
+        lang={interfaceLanguage}
+      />
     </main>
   );
 }

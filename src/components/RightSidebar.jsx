@@ -8,7 +8,7 @@ const RightSidebar = ({ lang = 'pt' }) => {
     const t = translations[lang];
 
     return (
-        <div className="w-80 h-screen bg-slate-950 border-l border-slate-900 overflow-y-auto custom-scrollbar p-6 flex flex-col gap-6">
+        <div className="hidden lg:flex w-80 h-screen bg-slate-950 border-l border-slate-900 overflow-y-auto custom-scrollbar p-6 flex flex-col gap-6">
             {/* Top Stats */}
             <div className="flex justify-between items-center bg-slate-900/30 p-3 rounded-xl border border-slate-800">
                 <div className="flex items-center gap-1">

@@ -32,7 +32,7 @@ const Sidebar = ({ currentView, onViewChange, onLogout, lang = 'pt' }) => {
   const t = translations[lang];
 
   return (
-    <div className="w-64 h-screen bg-slate-950 border-r border-slate-900 flex flex-col p-4 gap-2">
+    <div className="hidden md:flex w-64 h-screen bg-slate-950 border-r border-slate-900 flex flex-col p-4 gap-2">
       <div className="flex items-center gap-2 px-4 mb-8">
         <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-white italic">N</div>
         <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Next_Tech_Learning</span>
