@@ -262,8 +262,26 @@ json.dumps(run_test(), default=str)
                                 {lesson.instructions}
                             </p>
 
-                            <div className="space-y-2">
-                                <h4 className="text-[14px] font-bold text-white">O que fazer:</h4>
+                            <div className="space-y-4">
+                                <div className="flex items-center justify-between">
+                                    <h4 className="text-[14px] font-bold text-white">O que fazer:</h4>
+                                    <div className="flex gap-2">
+                                        <button
+                                            onClick={runCode}
+                                            disabled={isRunning || isPyodideLoading}
+                                            className="flex items-center px-3 py-1 bg-slate-800 hover:bg-slate-700 text-white rounded-lg transition-all border border-slate-600 disabled:opacity-50 text-[11px] font-bold"
+                                        >
+                                            {isRunning || isPyodideLoading ? <Loader2 size={12} className="mr-1 animate-spin" /> : <Play size={12} className="mr-1 fill-current" />}
+                                            {isPyodideLoading ? '...' : 'Executar'}
+                                        </button>
+                                        <button
+                                            onClick={submitCode}
+                                            className="flex items-center px-3 py-1 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg shadow-lg shadow-blue-600/20 transition-all active:scale-95 text-[11px]"
+                                        >
+                                            <Send size={12} className="mr-1" /> Enviar
+                                        </button>
+                                    </div>
+                                </div>
                                 <ol className="list-decimal list-inside space-y-2 text-[14px] text-slate-400 font-bold">
                                     <li>Analise o código inicial no editor ao lado.</li>
                                     <li>Pressione o botão "Executar" para testar sua lógica.</li>
@@ -308,22 +326,6 @@ json.dumps(run_test(), default=str)
             {/* Right Pane - Editor & Terminal */}
             <div className="flex-1 flex flex-col bg-[#1e1e1e]">
                 <div className="flex-1 relative">
-                    <div className="absolute top-2 right-3 md:top-4 md:right-6 z-10 flex gap-2 md:gap-3">
-                        <button
-                            onClick={runCode}
-                            disabled={isRunning || isPyodideLoading}
-                            className="flex items-center px-2.5 py-1.5 md:px-4 md:py-2 bg-slate-800/80 hover:bg-slate-700 text-white rounded-lg transition-all border border-slate-600 backdrop-blur-sm disabled:opacity-50 text-[13px] md:text-sm"
-                        >
-                            {isRunning || isPyodideLoading ? <Loader2 size={14} className="mr-1.5 md:mr-2 animate-spin" /> : <Play size={14} className="mr-1.5 md:mr-2 fill-current" />}
-                            {isPyodideLoading ? '...' : 'Executar'}
-                        </button>
-                        <button
-                            onClick={submitCode}
-                            className="flex items-center px-3.5 py-1.5 md:px-5 md:py-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg shadow-lg shadow-blue-600/20 transition-all active:scale-95 text-[13px] md:text-sm"
-                        >
-                            <Send size={14} className="mr-1.5 md:mr-2" /> Enviar
-                        </button>
-                    </div>
                     <Editor
                         height="100%"
                         defaultLanguage={lesson.id.startsWith('js') ? 'javascript' : 'python'}
