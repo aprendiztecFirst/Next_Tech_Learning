@@ -217,7 +217,7 @@ json.dumps(run_test(), default=str)
     return (
         <div className="flex flex-col md:flex-row flex-1 h-full overflow-hidden">
             {/* Left Pane - Instructions */}
-            <div className="w-full md:w-1/3 p-0 overflow-y-auto border-b md:border-b-0 md:border-r border-slate-800 bg-[#161616] custom-scrollbar flex flex-col max-h-[40%] md:max-h-full">
+            <div className="w-full md:w-1/3 p-0 overflow-y-auto border-b md:border-b-0 md:border-r border-slate-800 bg-[#161616] custom-scrollbar flex flex-col max-h-[35%] md:max-h-full">
                 {/* Fixed Header */}
                 <div className="p-4 border-b border-white/5 bg-[#1a1a1a]">
                     <h2 className="text-xl font-bold text-white flex items-center gap-2">
@@ -308,20 +308,20 @@ json.dumps(run_test(), default=str)
             {/* Right Pane - Editor & Terminal */}
             <div className="flex-1 flex flex-col bg-[#1e1e1e]">
                 <div className="flex-1 relative">
-                    <div className="absolute top-4 right-6 z-10 flex gap-3">
+                    <div className="absolute top-2 right-3 md:top-4 md:right-6 z-10 flex gap-2 md:gap-3">
                         <button
                             onClick={runCode}
                             disabled={isRunning || isPyodideLoading}
-                            className="flex items-center px-4 py-2 bg-slate-800/80 hover:bg-slate-700 text-white rounded-lg transition-all border border-slate-600 backdrop-blur-sm disabled:opacity-50"
+                            className="flex items-center px-2.5 py-1.5 md:px-4 md:py-2 bg-slate-800/80 hover:bg-slate-700 text-white rounded-lg transition-all border border-slate-600 backdrop-blur-sm disabled:opacity-50 text-[13px] md:text-sm"
                         >
-                            {isRunning || isPyodideLoading ? <Loader2 size={16} className="mr-2 animate-spin" /> : <Play size={16} className="mr-2 fill-current" />}
-                            {isPyodideLoading ? 'Carregando...' : 'Executar'}
+                            {isRunning || isPyodideLoading ? <Loader2 size={14} className="mr-1.5 md:mr-2 animate-spin" /> : <Play size={14} className="mr-1.5 md:mr-2 fill-current" />}
+                            {isPyodideLoading ? '...' : 'Executar'}
                         </button>
                         <button
                             onClick={submitCode}
-                            className="flex items-center px-5 py-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg shadow-lg shadow-blue-600/20 transition-all active:scale-95"
+                            className="flex items-center px-3.5 py-1.5 md:px-5 md:py-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg shadow-lg shadow-blue-600/20 transition-all active:scale-95 text-[13px] md:text-sm"
                         >
-                            <Send size={16} className="mr-2" /> Enviar
+                            <Send size={14} className="mr-1.5 md:mr-2" /> Enviar
                         </button>
                     </div>
                     <Editor
