@@ -121,6 +121,25 @@ export default function Home() {
         )
       }));
       setCourses(updatedCourses);
+
+      // Restore to the first uncompleted lesson for the current language
+      const currentLangCourses = updatedCourses.filter(c => c.id.startsWith(selectedLanguage));
+      let nextUncompleted = null;
+      let nextCourseId = null;
+
+      for (const course of currentLangCourses) {
+        const firstUncompleted = course.lessons.find(l => !completedIds.includes(l.id));
+        if (firstUncompleted) {
+          nextUncompleted = firstUncompleted.id;
+          nextCourseId = course.id;
+          break;
+        }
+      }
+
+      if (nextUncompleted) {
+        setActiveLessonId(nextUncompleted);
+        setActiveCourseId(nextCourseId);
+      }
     }
   };
 
@@ -143,12 +162,36 @@ export default function Home() {
   const filteredCourses = coursesData.filter(c => c.id.startsWith(selectedLanguage));
 
   const [courses, setCourses] = useState(coursesData);
-  const [activeCourseId, setActiveCourseId] = useState(filteredCourses[0].id);
-  const [activeLessonId, setActiveLessonId] = useState(filteredCourses[0].lessons[0].id);
+  const [activeCourseId, setActiveCourseId] = useState(null);
+  const [activeLessonId, setActiveLessonId] = useState(null);
   const [activeChallenge, setActiveChallenge] = useState(null);
 
-  const activeCourse = courses.find(c => c.id === activeCourseId) || filteredCourses[0];
-  const activeLesson = activeCourse.lessons.find(l => l.id === activeLessonId) || activeCourse.lessons[0];
+  // Initialize from localStorage or first lesson
+  useEffect(() => {
+    const savedCourseId = localStorage.getItem(`next_idiomas_course_${selectedLanguage}`);
+    const savedLessonId = localStorage.getItem(`next_idiomas_lesson_${selectedLanguage}`);
+
+    const newFiltered = coursesData.filter(c => c.id.startsWith(selectedLanguage));
+
+    if (savedCourseId && savedLessonId) {
+      setActiveCourseId(savedCourseId);
+      setActiveLessonId(savedLessonId);
+    } else {
+      setActiveCourseId(newFiltered[0].id);
+      setActiveLessonId(newFiltered[0].lessons[0].id);
+    }
+  }, [selectedLanguage]);
+
+  // Save to localStorage when it changes
+  useEffect(() => {
+    if (activeCourseId && activeLessonId) {
+      localStorage.setItem(`next_idiomas_course_${selectedLanguage}`, activeCourseId);
+      localStorage.setItem(`next_idiomas_lesson_${selectedLanguage}`, activeLessonId);
+    }
+  }, [activeCourseId, activeLessonId, selectedLanguage]);
+
+  const activeCourse = courses.find(c => c.id === activeCourseId) || coursesData.filter(c => c.id.startsWith(selectedLanguage))[0];
+  const activeLesson = activeCourse?.lessons.find(l => l.id === activeLessonId) || activeCourse?.lessons[0];
 
   const handleLogin = (user) => {
     setIsAuthenticated(true);
@@ -181,9 +224,7 @@ export default function Home() {
 
   const handleLanguageChange = (lang) => {
     setSelectedLanguage(lang);
-    const newFiltered = coursesData.filter(c => c.id.startsWith(lang));
-    setActiveCourseId(newFiltered[0].id);
-    setActiveLessonId(newFiltered[0].lessons[0].id);
+    // The useEffect will handle the rest
   };
 
   const handleSelectLesson = (lessonId, courseId) => {
@@ -240,14 +281,12 @@ export default function Home() {
         setView('worlds');
       }
     } else {
-      // Update completion status in local state
-      const updatedCourses = courses.map(course => ({
+      setCourses(prev => prev.map(course => ({
         ...course,
         lessons: course.lessons.map(lesson =>
           lesson.id === activeLessonId ? { ...lesson, completed: true } : lesson
         )
-      }));
-      setCourses(updatedCourses);
+      })));
 
       // Save progress to Supabase
       if (user) {
