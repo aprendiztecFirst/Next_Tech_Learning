@@ -15,13 +15,17 @@ export const metadata = {
   title: "Next Idiomas",
   description: "Plataforma interativa de aprendizado de Python e JavaScript",
   manifest: "/manifest.json",
-  themeColor: "#020617",
-  viewport: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
     title: "Next Idiomas",
   },
+};
+
+export const viewport = {
+  themeColor: "#020617",
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({ children }) {
