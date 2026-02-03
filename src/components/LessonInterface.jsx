@@ -263,20 +263,20 @@ json.dumps(run_test(), default=str)
                             </p>
 
                             <div className="space-y-4">
-                                <div className="flex items-center justify-between">
+                                <div className="flex items-center justify-between bg-white/5 p-2 rounded-lg border border-white/5">
                                     <h4 className="text-[14px] font-bold text-white">O que fazer:</h4>
                                     <div className="flex gap-2">
                                         <button
                                             onClick={runCode}
                                             disabled={isRunning || isPyodideLoading}
-                                            className="flex items-center px-3 py-1 bg-slate-800 hover:bg-slate-700 text-white rounded-lg transition-all border border-slate-600 disabled:opacity-50 text-[11px] font-bold"
+                                            className="flex items-center px-2 py-1 bg-slate-800 hover:bg-slate-700 text-white rounded-md transition-all border border-slate-600 disabled:opacity-50 text-[10px] font-bold"
                                         >
-                                            {isRunning || isPyodideLoading ? <Loader2 size={12} className="mr-1 animate-spin" /> : <Play size={12} className="mr-1 fill-current" />}
+                                            {isRunning || isPyodideLoading ? <Loader2 size={12} className="mr-1 animate-spin" /> : <Play size={12} className="mr-1 fill-current hover:text-green-400" />}
                                             {isPyodideLoading ? '...' : 'Executar'}
                                         </button>
                                         <button
                                             onClick={submitCode}
-                                            className="flex items-center px-3 py-1 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg shadow-lg shadow-blue-600/20 transition-all active:scale-95 text-[11px]"
+                                            className="flex items-center px-3 py-1 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-md shadow-lg shadow-blue-600/20 transition-all active:scale-95 text-[10px]"
                                         >
                                             <Send size={12} className="mr-1" /> Enviar
                                         </button>
