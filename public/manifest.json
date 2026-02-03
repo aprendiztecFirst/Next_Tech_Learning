@@ -1,0 +1,17 @@
+{
+    "name": "Next Idiomas",
+    "short_name": "Next",
+    "description": "Plataforma interativa de aprendizado de tecnologia e idiomas",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#020617",
+    "theme_color": "#2563eb",
+    "icons": [
+        {
+            "src": "/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}

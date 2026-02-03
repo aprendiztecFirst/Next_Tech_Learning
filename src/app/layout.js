@@ -12,8 +12,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Next_Tech_Learning",
+  title: "Next Idiomas",
   description: "Plataforma interativa de aprendizado de Python e JavaScript",
+  manifest: "/manifest.json",
+  themeColor: "#020617",
+  viewport: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "Next Idiomas",
+  },
 };
 
 export default function RootLayout({ children }) {
