@@ -83,7 +83,7 @@ const LoginView = ({ onLogin, lang = 'pt' }) => {
                         <Sparkles className="text-white" size={32} />
                     </div>
                     <h1 className="text-3xl font-black bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
-                        Next_Tech_Learning
+                        Next - App
                     </h1>
                     <p className="text-slate-500 font-bold text-sm mt-2">
                         {isLogin ? 'Bem-vindo de volta, futuro dev!' : 'Comece sua jornada tech hoje!'}

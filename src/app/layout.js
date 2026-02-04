@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Next Idiomas",
+  title: "Next - App",
   description: "Plataforma interativa de aprendizado de Python e JavaScript",
   manifest: "/manifest.json",
   appleWebApp: {

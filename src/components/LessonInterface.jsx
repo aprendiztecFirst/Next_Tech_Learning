@@ -91,6 +91,7 @@ builtins.input = input_mock
 
                 try {
                     const result = eval(`(function() { 
+            const print = (...args) => console.log(...args);
             ${code} 
           })()`);
 

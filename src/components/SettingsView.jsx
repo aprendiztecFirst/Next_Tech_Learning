@@ -36,8 +36,8 @@ const SettingsView = ({ interfaceLanguage = 'pt', setInterfaceLanguage }) => {
                                     key={lang.id}
                                     onClick={() => setInterfaceLanguage(lang.id)}
                                     className={`flex items-center justify-between p-4 rounded-xl border transition-all ${interfaceLanguage === lang.id
-                                            ? 'bg-blue-600/10 border-blue-500 text-white shadow-lg shadow-blue-500/10'
-                                            : 'bg-slate-800/50 border-slate-700 text-slate-400 hover:border-slate-500'
+                                        ? 'bg-blue-600/10 border-blue-500 text-white shadow-lg shadow-blue-500/10'
+                                        : 'bg-slate-800/50 border-slate-700 text-slate-400 hover:border-slate-500'
                                         }`}
                                 >
                                     <div className="flex items-center gap-3">
@@ -88,7 +88,7 @@ const SettingsView = ({ interfaceLanguage = 'pt', setInterfaceLanguage }) => {
                     </div>
 
                     <div className="pt-8 text-center">
-                        <p className="text-[10px] text-slate-600 font-bold uppercase tracking-widest">Next_Tech_Learning v1.0.0</p>
+                        <p className="text-[10px] text-slate-600 font-bold uppercase tracking-widest">Next - App v1.0.0</p>
                     </div>
                 </div>
             </div>
