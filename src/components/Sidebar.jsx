@@ -2,28 +2,30 @@
 
 import React from 'react';
 import {
-  Home,
-  Trophy,
+  Map,
+  Dumbbell,
   Target,
-  TrendingUp,
+  Trophy,
   User,
-  MoreHorizontal,
-  ChevronRight,
+  Settings,
   Sparkles,
-  LogOut
+  LogOut,
+  ChevronRight
 } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 
 
 import { translations } from '@/data/translations';
 
-const SidebarItem = ({ icon: Icon, label, active = false, onClick }) => (
+const SidebarItem = ({ icon: Icon, label, active = false, onClick, color = "text-blue-400" }) => (
   <button
     onClick={onClick}
-    className={`w-full flex items-center gap-4 px-4 py-3 rounded-xl transition-all ${active ? 'bg-slate-800 text-white shadow-lg' : 'text-slate-400 hover:text-white hover:bg-slate-900/50'
+    className={`w-full flex items-center gap-4 px-4 py-3 rounded-xl transition-all group ${active ? 'bg-slate-800 text-white shadow-lg' : 'text-slate-400 hover:text-white hover:bg-slate-900/50'
       }`}
   >
-    <Icon size={22} className={active ? 'text-blue-400' : ''} />
+    <div className={`transition-all ${active ? color : `${color} opacity-40 group-hover:opacity-80`}`}>
+      <Icon size={24} strokeWidth={2.5} />
+    </div>
     <span className="font-bold text-[14px]">{label}</span>
   </button>
 );
@@ -42,28 +44,32 @@ const Sidebar = ({ currentView, onViewChange, onLogout, lang = 'pt' }) => {
 
       <nav className="flex-1 flex flex-col gap-1">
         <SidebarItem
-          icon={Home}
+          icon={Map}
           label={t.journey}
           active={currentView === 'journey'}
           onClick={() => onViewChange('journey')}
+          color="text-green-500"
         />
         <SidebarItem
-          icon={Trophy}
+          icon={Dumbbell}
           label={t.daily_challenge}
           active={currentView === 'daily_challenge'}
           onClick={() => onViewChange('daily_challenge')}
+          color="text-orange-500"
         />
         <SidebarItem
           icon={Target}
           label={t.goals}
           active={currentView === 'goals'}
           onClick={() => onViewChange('goals')}
+          color="text-red-500"
         />
         <SidebarItem
-          icon={TrendingUp}
+          icon={Trophy}
           label={t.leaderboard}
           active={currentView === 'leaderboard'}
           onClick={() => onViewChange('leaderboard')}
+          color="text-yellow-500"
         />
         <hr className="my-2 border-slate-900" />
 
@@ -72,6 +78,7 @@ const Sidebar = ({ currentView, onViewChange, onLogout, lang = 'pt' }) => {
           label={t.fased_challenges}
           active={currentView === 'worlds'}
           onClick={() => onViewChange('worlds')}
+          color="text-cyan-400"
         />
 
         <SidebarItem
@@ -79,18 +86,21 @@ const Sidebar = ({ currentView, onViewChange, onLogout, lang = 'pt' }) => {
           label={t.profile}
           active={currentView === 'profile'}
           onClick={() => onViewChange('profile')}
+          color="text-purple-500"
         />
         <SidebarItem
-          icon={MoreHorizontal}
+          icon={Settings}
           label={t.preferences}
           active={currentView === 'settings'}
           onClick={() => onViewChange('settings')}
+          color="text-blue-500"
         />
         <hr className="my-2 border-slate-900" />
         <SidebarItem
           icon={LogOut}
           label={t.logout || (lang === 'pt' ? 'Sair' : 'Logout')}
           onClick={onLogout}
+          color="text-slate-400"
         />
 
 

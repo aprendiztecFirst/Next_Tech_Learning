@@ -215,118 +215,101 @@ json.dumps(run_test(), default=str)
         }
     };
 
+    const [activeHint, setActiveHint] = useState(null);
+
     return (
-        <div className="flex flex-col md:flex-row flex-1 h-full overflow-hidden">
+        <div className="flex flex-col md:flex-row flex-1 h-full overflow-hidden bg-[#0a1219]">
             {/* Left Pane - Instructions */}
-            <div className="w-full md:w-1/3 p-0 overflow-y-auto border-b md:border-b-0 md:border-r border-slate-800 bg-[#161616] custom-scrollbar flex flex-col max-h-[35%] md:max-h-full">
-                {/* Fixed Header */}
-                <div className="p-4 border-b border-white/5 bg-[#1a1a1a]">
-                    <h2 className="text-xl font-bold text-white flex items-center gap-2">
-                        {lesson.title.split(' - ')[0]}
-                    </h2>
+            <div className="w-full md:w-5/12 p-0 overflow-y-auto border-b md:border-b-0 md:border-r border-slate-800/50 bg-[#0a1219] custom-scrollbar flex flex-col max-h-[45%] md:max-h-full">
+                {/* Header */}
+                <div className="px-8 py-6 border-b border-white/5">
+                    <div className="text-[10px] font-black text-[#00d1ff] tracking-[0.2em] mb-2 uppercase">
+                        {lesson.id.startsWith('py') ? 'ESCOLA_TECH PYTHON' : 'ESCOLA_TECH JAVASCRIPT'}
+                    </div>
+                    <h1 className="text-3xl font-extrabold text-white tracking-tight leading-tight">
+                        {lesson.title.split(' – ')[1] || lesson.title.split(' - ')[1] || lesson.title}
+                    </h1>
                 </div>
 
-                <div className="p-6 space-y-8">
-                    {/* Content Section */}
-                    {isIntroVisible && (
-                        <div className="space-y-4">
-                            <div className="flex justify-between items-center">
-                                <h3 className="text-xl font-bold text-white">{lesson.title.split(' - ')[1] || 'A Linguagem'}</h3>
-                                <div className="flex gap-2">
-                                    <button className="text-[10px] font-bold bg-slate-800 text-slate-400 px-2 py-1 rounded">TL;DR</button>
-                                    <button
-                                        onClick={() => setIsIntroVisible(false)}
-                                        className="text-[10px] font-bold bg-slate-800 text-slate-400 px-2 py-1 rounded hover:bg-slate-700"
-                                    >
-                                        Ocultar
-                                    </button>
-                                </div>
-                            </div>
-                            <p className="text-slate-300 leading-relaxed text-[14px] font-bold">
-                                {lesson.description}
-                            </p>
-                        </div>
-                    )}
-
-                    {/* Challenge Section */}
+                <div className="p-8 space-y-10">
+                    {/* Intro Section */}
                     <div className="space-y-4">
-                        <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center">
-                                <Lightbulb size={18} className="text-white" />
-                            </div>
-                            <h3 className="text-xl font-black text-white">Desafio</h3>
-                            <span className="text-[10px] font-bold bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded-full border border-blue-500/30">Iniciante</span>
-                        </div>
-
-                        <div className="space-y-4">
-                            <p className="text-slate-200 font-bold text-[14px]">
-                                {lesson.instructions}
-                            </p>
-
-                            <div className="space-y-4">
-                                <div className="flex items-center justify-between bg-white/5 p-2 rounded-lg border border-white/5">
-                                    <h4 className="text-[14px] font-bold text-white">O que fazer:</h4>
-                                    <div className="flex gap-2">
-                                        <button
-                                            onClick={runCode}
-                                            disabled={isRunning || isPyodideLoading}
-                                            className="flex items-center px-2 py-1 bg-slate-800 hover:bg-slate-700 text-white rounded-md transition-all border border-slate-600 disabled:opacity-50 text-[10px] font-bold"
-                                        >
-                                            {isRunning || isPyodideLoading ? <Loader2 size={12} className="mr-1 animate-spin" /> : <Play size={12} className="mr-1 fill-current hover:text-green-400" />}
-                                            {isPyodideLoading ? '...' : 'Executar'}
-                                        </button>
-                                        <button
-                                            onClick={submitCode}
-                                            className="flex items-center px-3 py-1 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-md shadow-lg shadow-blue-600/20 transition-all active:scale-95 text-[10px]"
-                                        >
-                                            <Send size={12} className="mr-1" /> Enviar
-                                        </button>
-                                    </div>
-                                </div>
-                                <ol className="list-decimal list-inside space-y-2 text-[14px] text-slate-400 font-bold">
-                                    <li>Analise o código inicial no editor ao lado.</li>
-                                    <li>Pressione o botão "Executar" para testar sua lógica.</li>
-                                    <li>Verifique se a saída no terminal está correta.</li>
-                                </ol>
-                            </div>
-
-                            <button className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/10 bg-white/5 text-blue-400 text-xs font-bold hover:bg-white/10 transition-colors">
-                                <Bot size={16} />
-                                Explicar desafio
-                            </button>
-                        </div>
+                        <p className="text-[#a0aec0] leading-relaxed text-[16px]">
+                            {lesson.description}
+                        </p>
                     </div>
 
-                    {/* Solution Section */}
-                    <div className="space-y-4 pt-4 border-t border-white/5">
-                        <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center">
-                                <Target size={18} className="text-white" />
-                            </div>
-                            <h3 className="text-xl font-black text-white">Solução</h3>
-                        </div>
+                    <div className="h-px bg-white/5"></div>
 
-                        <div className="border border-white/10 rounded-xl overflow-hidden">
-                            <button
-                                onClick={() => setShowSolution(!showSolution)}
-                                className="w-full flex items-center justify-between p-4 bg-white/5 hover:bg-white/10 transition-colors text-slate-400 font-bold text-sm"
-                            >
-                                <span>Solução</span>
-                                <ChevronRight className={`transition-transform ${showSolution ? 'rotate-90' : ''}`} size={16} />
-                            </button>
-                            {showSolution && (
-                                <div className="p-4 bg-black/40 border-t border-white/10 font-mono text-xs text-green-400">
-                                    <pre className="whitespace-pre-wrap">{lesson.solution}</pre>
-                                </div>
-                            )}
+                    {/* Task Section */}
+                    <div className="space-y-6">
+                        <div className="flex items-center gap-2">
+                            <span className="text-white font-bold text-lg">Sua Tarefa:</span>
                         </div>
+                        <p className="text-[#ccd6f6] text-[16px] leading-relaxed bg-white/5 p-4 rounded-xl border border-white/5">
+                            {lesson.instructions}
+                        </p>
+                    </div>
+
+                    {/* Hints Section */}
+                    {(lesson.hints && lesson.hints.length > 0) && (
+                        <div className="space-y-4 pt-4">
+                            <div className="flex items-center gap-2 text-[#ecc94b]">
+                                <Lightbulb size={20} />
+                                <h3 className="text-lg font-bold">Hints</h3>
+                            </div>
+
+                            <div className="space-y-3">
+                                {lesson.hints.map((hint, idx) => (
+                                    <div key={idx} className="border border-white/10 rounded-xl overflow-hidden bg-[#1a202c]/50">
+                                        <button
+                                            onClick={() => setActiveHint(activeHint === idx ? null : idx)}
+                                            className="w-full flex items-center justify-between p-4 hover:bg-white/5 transition-all text-slate-300 font-medium text-sm"
+                                        >
+                                            <span>Hint {idx + 1}</span>
+                                            <ChevronDown className={`transition-transform duration-300 ${activeHint === idx ? 'rotate-180' : ''}`} size={16} />
+                                        </button>
+                                        {activeHint === idx && (
+                                            <div className="px-4 pb-4 pt-1 text-slate-400 text-sm leading-relaxed animate-in fade-in slide-in-from-top-2 duration-300">
+                                                {hint}
+                                            </div>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+                </div>
+
+                {/* Bottom Actions - Fixed on Mobile, Integrated on Desktop */}
+                <div className="mt-auto p-8 bg-gradient-to-t from-black/20 to-transparent">
+                    <div className="flex gap-4">
+                        <button
+                            onClick={runCode}
+                            disabled={isRunning || isPyodideLoading}
+                            className="flex-1 flex items-center justify-center gap-3 px-6 py-4 bg-slate-800/80 hover:bg-slate-700 text-white rounded-xl transition-all border border-slate-700/50 disabled:opacity-50 font-bold text-sm"
+                        >
+                            {isRunning || isPyodideLoading ? <Loader2 size={18} className="animate-spin" /> : <Play size={18} className="fill-white" />}
+                            {isPyodideLoading ? 'CARREGANDO...' : 'EXECUTAR'}
+                        </button>
+                        <button
+                            onClick={submitCode}
+                            className="flex-1 flex items-center justify-center gap-3 px-6 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl shadow-xl shadow-blue-600/20 transition-all active:scale-[0.98] text-sm"
+                        >
+                            <Send size={18} /> ENVIAR
+                        </button>
                     </div>
                 </div>
             </div>
 
             {/* Right Pane - Editor & Terminal */}
-            <div className="flex-1 flex flex-col bg-[#1e1e1e]">
+            <div className="flex-1 flex flex-col bg-[#011627]">
                 <div className="flex-1 relative">
+                    <div className="absolute top-0 right-0 p-4 z-10 flex items-center gap-2">
+                        <div className="px-2 py-1 bg-white/5 rounded text-[10px] font-mono text-slate-500 border border-white/10">
+                            {lesson.id.startsWith('js') ? 'main.js' : 'main.py'}
+                        </div>
+                    </div>
                     <Editor
                         height="100%"
                         defaultLanguage={lesson.id.startsWith('js') ? 'javascript' : 'python'}
@@ -336,40 +319,48 @@ json.dumps(run_test(), default=str)
                         options={{
                             fontSize: 16,
                             minimap: { enabled: false },
-                            padding: { top: 24 },
+                            padding: { top: 40 },
                             scrollBeyondLastLine: false,
                             fontFamily: "'Fira Code', 'Courier New', monospace",
                             fontLigatures: true,
                             smoothScrolling: true,
-                            cursorBlinking: "expand"
+                            cursorBlinking: "expand",
+                            backgroundColor: '#011627',
+                            lineNumbersMinChars: 3,
+                            glyphMargin: false,
+                            folding: false,
+                            lineDecorationsWidth: 10
                         }}
                     />
                 </div>
 
                 {/* Terminal */}
-                <div className="h-48 border-t border-slate-800 bg-[#0c0c0c] p-4 flex flex-col">
-                    <div className="flex items-center justify-between mb-3 px-1">
-                        <div className="flex items-center text-slate-500">
-                            <TerminalIcon size={14} className="mr-2 text-blue-500" />
-                            <span className="text-xs font-bold uppercase tracking-widest">Saída</span>
+                <div className="h-56 border-t border-white/5 bg-[#011627] p-6 flex flex-col">
+                    <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center gap-2 text-slate-400">
+                            <TerminalIcon size={16} className="text-[#00d1ff]" />
+                            <span className="text-xs font-black uppercase tracking-[0.1em]">Console</span>
                         </div>
                         <button
                             onClick={() => setOutput([])}
-                            className="text-[10px] text-slate-600 hover:text-slate-400 uppercase font-bold tracking-tighter"
+                            className="text-[10px] text-slate-500 hover:text-slate-300 uppercase font-black tracking-widest transition-colors"
                         >
-                            Limpar
+                            CLEAR
                         </button>
                     </div>
-                    <div className="flex-1 overflow-y-auto font-mono text-sm custom-scrollbar px-1">
+                    <div className="flex-1 overflow-y-auto font-mono text-[14px] custom-scrollbar space-y-2">
                         {output.length > 0 ? (
                             output.map((line, i) => (
-                                <div key={i} className="mb-1 flex">
-                                    <span className="text-blue-900 mr-2 shrink-0">➜</span>
-                                    <span className={line.startsWith('Error') ? 'text-red-400' : 'text-slate-300'}>{line}</span>
+                                <div key={i} className="flex gap-3 animate-in fade-in slide-in-from-left-2 duration-300">
+                                    <span className="text-[#00d1ff] opacity-50 select-none">›</span>
+                                    <span className={line.startsWith('Error') || line.includes('❌') ? 'text-red-400' : line.includes('✅') ? 'text-green-400' : 'text-[#d6deeb]'}>{line}</span>
                                 </div>
                             ))
                         ) : (
-                            <div className="text-slate-700 italic text-xs">Aguardando execução...</div>
+                            <div className="text-slate-600 italic text-[13px] flex items-center gap-2 opacity-50">
+                                <div className="w-1.5 h-1.5 bg-slate-600 rounded-full animate-pulse"></div>
+                                Aguardando execução...
+                            </div>
                         )}
                     </div>
                 </div>

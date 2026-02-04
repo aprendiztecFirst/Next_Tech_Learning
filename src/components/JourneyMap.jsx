@@ -1,27 +1,51 @@
 "use client";
 
 import React from 'react';
-import { Check, Lock, Trophy, ChevronLeft, Star, Brain, Flag, CircuitBoard } from 'lucide-react';
+import {
+    Check, Lock, Trophy, ChevronLeft, Star, Brain, Flag, CircuitBoard,
+    MessageSquare, Power, Lightbulb, Settings, User, Heart, Gamepad2,
+    Medal, Target, Zap, Sparkles, Rocket, Code
+} from 'lucide-react';
 import { motion } from 'framer-motion';
 import { translations } from '@/data/translations';
 
 const Node = ({ lesson, index, isActive, onClick, t, isLastInCourse }) => {
     // Determine icon based on position/index
     const getIcon = () => {
-        // Icon color based on status
-        if (lesson.completed) return <Check size={24} className="stroke-[3]" />;
-        if (isActive) return <Trophy size={24} className="fill-current text-white" />;
+        // Status determination
+        const isCompleted = lesson.completed;
+        const isStarted = lesson.started && !isCompleted;
 
-        const isStarted = lesson.started && !lesson.completed;
-        const iconColor = isStarted ? 'text-yellow-400' : 'text-slate-500';
+        // Cycle through icons from the reference image style
+        const icons = [
+            MessageSquare, Power, Lightbulb, Star, Settings,
+            User, Heart, Gamepad2, Medal, Target,
+            Zap, Sparkles, Rocket, Code, Brain
+        ];
 
-        // Pattern icons
-        const position = index % 5;
-        let IconComp = Brain;
-        if (position === 0) IconComp = Flag;
-        if (position === 2 || position === 4) IconComp = Star;
+        const IconComp = icons[index % icons.length];
 
-        return <IconComp size={20} className={`opacity-80 ${iconColor}`} />;
+        // Colors from reference image
+        const colors = [
+            'text-blue-400', 'text-red-400', 'text-yellow-400', 'text-green-400', 'text-purple-400',
+            'text-orange-400', 'text-cyan-400', 'text-pink-400', 'text-indigo-400', 'text-amber-400'
+        ];
+        const baseColor = colors[index % colors.length];
+
+        const iconColor = isActive ? 'text-white' :
+            isCompleted ? 'text-white' :
+                isStarted ? baseColor : 'text-slate-500';
+
+        return (
+            <div className="relative flex items-center justify-center">
+                <IconComp size={isActive ? 24 : 20} className={`${iconColor} ${isCompleted ? 'opacity-100' : 'opacity-80'} transition-all`} />
+                {isCompleted && (
+                    <div className="absolute -top-1 -right-1 bg-green-500 rounded-full p-0.5 border border-slate-900">
+                        <Check size={8} className="text-white stroke-[4]" />
+                    </div>
+                )}
+            </div>
+        );
     };
 
     // Zig-zag offset with tighter values to match image
