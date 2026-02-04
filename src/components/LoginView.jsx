@@ -79,8 +79,8 @@ const LoginView = ({ onLogin, lang = 'pt' }) => {
             >
                 {/* Logo Area */}
                 <div className="flex flex-col items-center mb-8">
-                    <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-4 shadow-2xl shadow-blue-500/20 rotate-3">
-                        <Sparkles className="text-white" size={32} />
+                    <div className="w-20 h-20 bg-slate-900 rounded-[1.5rem] flex items-center justify-center mb-4 shadow-2xl shadow-blue-500/20 rotate-3 overflow-hidden border-2 border-white/10">
+                        <img src="/icon-512x512.png" alt="Logo" className="w-full h-full object-cover" />
                     </div>
                     <h1 className="text-3xl font-black bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
                         Next - App
