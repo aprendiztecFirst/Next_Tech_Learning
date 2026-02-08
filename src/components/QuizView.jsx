@@ -288,6 +288,47 @@ const QuizView = ({ lang = 'pt', selectedLanguage = 'js', coursesData }) => {
                                 {feedback === 'correct' ? (lang === 'pt' ? 'Resposta Correta!' : 'Correct!') : (lang === 'pt' ? 'Ops! Tente responder melhor na próxima.' : 'Incorrect!')}
                             </motion.div>
                         )}
+                        {feedback === 'incorrect' && (
+                            <motion.div
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                className="mt-4 p-4 bg-slate-900/80 border border-slate-800 rounded-2xl max-w-2xl"
+                            >
+                                <div className="space-y-4">
+                                    {currentQuestion.type === 'fill-in-the-gaps' ? (
+                                        <div>
+                                            <span className="text-[10px] font-black text-pink-500 uppercase tracking-widest block mb-2">{t.correct_solution}</span>
+                                            <div className="flex flex-wrap gap-2">
+                                                {currentQuestion.gaps.map((gap, idx) => (
+                                                    <div key={idx} className="bg-slate-800 px-3 py-1 rounded-lg border border-slate-700 text-xs font-mono">
+                                                        <span className="text-slate-500 mr-2">{gap.label || `Gap ${idx + 1}`}:</span>
+                                                        <span className="text-green-400 font-bold">{gap.options[gap.answer]}</span>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <div>
+                                            <span className="text-[10px] font-black text-pink-500 uppercase tracking-widest block mb-1">{t.correct_solution}</span>
+                                            <p className="text-green-400 font-bold text-sm">
+                                                {currentQuestion.type === 'multiple-choice' || currentQuestion.type === 'boolean'
+                                                    ? currentQuestion.options[currentQuestion.answer]
+                                                    : currentQuestion.answer}
+                                            </p>
+                                        </div>
+                                    )}
+
+                                    {currentQuestion.explanation && (
+                                        <div>
+                                            <span className="text-[10px] font-black text-blue-500 uppercase tracking-widest block mb-1">{t.explanation}</span>
+                                            <p className="text-slate-300 text-sm leading-relaxed italic">
+                                                "{currentQuestion.explanation}"
+                                            </p>
+                                        </div>
+                                    )}
+                                </div>
+                            </motion.div>
+                        )}
                     </div>
 
                     {!feedback ? (

@@ -14,7 +14,8 @@ export const quizzes = {
                     type: "boolean",
                     question: "O código a seguir imprimirá \"Hello\" na tela em JavaScript?\n\n// console.log(\"Hello\")",
                     options: ["Verdadeiro", "Falso também"],
-                    answer: 1
+                    answer: 1,
+                    explanation: "O código está comentado com '//', portanto o comando `console.log` não é executado e nada é impresso."
                 },
                 {
                     id: "js-q3",
@@ -36,7 +37,8 @@ export const quizzes = {
                     gaps: [
                         { label: "Lacuna #1", options: ["#", "/*", "\"\"\""], answer: 1 },
                         { label: "Lacuna #2", options: ["*/", "#", "\"\"\""], answer: 0 }
-                    ]
+                    ],
+                    explanation: "Comentários multi-linha (bloco) em JavaScript começam com '/*' e terminam com '*/'."
                 },
                 {
                     id: "js-q5",
@@ -48,21 +50,24 @@ export const quizzes = {
                         "# Comentário",
                         "// Comentário"
                     ],
-                    answer: 3
+                    answer: 3,
+                    explanation: "O operador '//' é o padrão para comentários de linha única em JavaScript. As outras opções são usadas em outras linguagens (como Python ou HTML)."
                 },
                 {
                     id: "js-q6",
                     type: "multiple-choice",
                     question: "Como você escreve 'Hello World' em um alerta?",
                     options: ["alertBox('Hello World')", "msg('Hello World')", "alert('Hello World')", "console.log('Hello World')"],
-                    answer: 2
+                    answer: 2,
+                    explanation: "A função `alert()` é um método do objeto window que exibe uma caixa de diálogo com uma mensagem e um botão OK."
                 },
                 {
                     id: "js-q7",
                     type: "multiple-choice",
                     question: "Qual símbolo é usado para comentários de bloco em JS?",
                     options: ["//", "#", "/* */", "<!-- -->"],
-                    answer: 2
+                    answer: 2,
+                    explanation: "Comentários de bloco em JavaScript começam com '/*' e terminam com '*/', permitindo comentar várias linhas de uma vez."
                 },
                 {
                     id: "js-q8",
@@ -85,8 +90,9 @@ export const quizzes = {
                     code: "____.log(\"Olá\")",
                     gaps: [
                         { label: "Lacuna", options: ["window", "console", "document"], answer: 1 }
-                    ]
-                }
+                    ],
+                    explanation: "O objeto `console` fornece acesso ao console de depuração do navegador, e o método `.log()` é usado para imprimir mensagens nele."
+                },
             ],
             "js-ch2": [
                 {
@@ -126,7 +132,8 @@ export const quizzes = {
                     type: "boolean",
                     question: "O código a seguir imprimirá \"Hello\" na tela em Python?\n\n# print(\"Hello\")",
                     options: ["Verdadeiro", "Falso também"],
-                    answer: 1
+                    answer: 1,
+                    explanation: "The code is preceded by '#', making it a comment. Thus, the print function is never called."
                 },
                 {
                     id: "py-q3",
@@ -148,7 +155,8 @@ export const quizzes = {
                     gaps: [
                         { label: "Lacuna #1", options: ["#", "/*", "\"\"\""], answer: 2 },
                         { label: "Lacuna #2", options: ["*/", "#", "\"\"\""], answer: 2 }
-                    ]
+                    ],
+                    explanation: "Python uses triple quotes (\"\"\" or ''') to create multi-line strings, which are often used as multi-line comments."
                 },
                 {
                     id: "py-q5",
