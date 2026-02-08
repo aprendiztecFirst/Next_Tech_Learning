@@ -15,8 +15,10 @@ import {
     BookOpen
 } from 'lucide-react';
 import { quizzes } from '@/data/quizzes';
+import { translations } from '@/data/translations';
 
 const QuizView = ({ lang = 'pt', selectedLanguage = 'js', coursesData }) => {
+    const t = translations[lang];
     const [selectedChapter, setSelectedChapter] = useState(null);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [score, setScore] = useState(0);
@@ -285,7 +287,7 @@ const QuizView = ({ lang = 'pt', selectedLanguage = 'js', coursesData }) => {
                                 className={`flex items-center gap-2 font-bold ${feedback === 'correct' ? 'text-green-500' : 'text-red-500'}`}
                             >
                                 {feedback === 'correct' ? <CheckCircle2 size={24} /> : <XCircle size={24} />}
-                                {feedback === 'correct' ? (lang === 'pt' ? 'Resposta Correta!' : 'Correct!') : (lang === 'pt' ? 'Ops! Tente responder melhor na próxima.' : 'Incorrect!')}
+                                {feedback === 'correct' ? t.quiz_correct : t.quiz_incorrect}
                             </motion.div>
                         )}
                         {feedback === 'incorrect' && (
