@@ -422,6 +422,7 @@ export default function Home() {
           <QuizView
             lang={interfaceLanguage}
             selectedLanguage={selectedLanguage}
+            onLanguageChange={handleLanguageChange}
             coursesData={coursesData}
           />
         )}

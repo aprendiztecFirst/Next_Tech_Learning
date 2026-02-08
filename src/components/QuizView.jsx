@@ -12,13 +12,15 @@ import {
     ClipboardList,
     Check,
     Award,
-    BookOpen
+    BookOpen,
+    ChevronDown,
+    Globe
 } from 'lucide-react';
 import { quizzes } from '@/data/quizzes';
 import { translations } from '@/data/translations';
 
-const QuizView = ({ lang = 'pt', selectedLanguage = 'js', coursesData }) => {
-    const t = translations[lang];
+const QuizView = ({ lang = 'pt', selectedLanguage = 'js', onLanguageChange, coursesData }) => {
+    const t = translations[lang] || translations['pt'];
     const [selectedChapter, setSelectedChapter] = useState(null);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [score, setScore] = useState(0);
@@ -26,6 +28,7 @@ const QuizView = ({ lang = 'pt', selectedLanguage = 'js', coursesData }) => {
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [selectedGaps, setSelectedGaps] = useState({});
     const [feedback, setFeedback] = useState(null);
+    const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
 
     const chapters = coursesData?.filter(c => c.id.startsWith(selectedLanguage)) || [];
     const currentQuizData = quizzes[lang] || quizzes['pt'];
@@ -77,9 +80,56 @@ const QuizView = ({ lang = 'pt', selectedLanguage = 'js', coursesData }) => {
         return (
             <div className="flex-1 overflow-y-auto p-8 bg-slate-950">
                 <div className="max-w-4xl mx-auto">
-                    <header className="mb-12">
-                        <h1 className="text-3xl font-black text-white mb-2">{lang === 'pt' ? 'Questionários por Capítulo' : 'Chapter Quizzes'}</h1>
-                        <p className="text-slate-500 font-medium">{lang === 'pt' ? 'Reforce seu conhecimento com testes rápidos.' : 'Strengthen your knowledge with quick tests.'}</p>
+                    <header className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+                        <div>
+                            <div className="flex items-center gap-4 mb-2">
+                                <h1 className="text-3xl font-black text-white">{lang === 'pt' ? 'Questionários por Capítulo' : 'Chapter Quizzes'}</h1>
+
+                                <div className="relative">
+                                    <button
+                                        onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
+                                        className="flex items-center gap-2 px-4 py-2 bg-slate-900 border border-slate-800 rounded-xl hover:border-pink-500/50 transition-all text-xs font-black tracking-widest text-pink-500 uppercase"
+                                    >
+                                        <Globe size={14} />
+                                        {selectedLanguage === 'js' ? 'JAVASCRIPT' : 'PYTHON'}
+                                        <ChevronDown size={14} className={`transition-transform ${isLangDropdownOpen ? 'rotate-180' : ''}`} />
+                                    </button>
+
+                                    <AnimatePresence>
+                                        {isLangDropdownOpen && (
+                                            <motion.div
+                                                initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                                exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                                                className="absolute left-0 mt-2 w-48 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl z-50 overflow-hidden"
+                                            >
+                                                <button
+                                                    onClick={() => {
+                                                        onLanguageChange('js');
+                                                        setIsLangDropdownOpen(false);
+                                                    }}
+                                                    className={`w-full px-4 py-3 text-left text-xs font-bold hover:bg-slate-800 transition-colors flex items-center justify-between ${selectedLanguage === 'js' ? 'text-pink-500' : 'text-slate-400'}`}
+                                                >
+                                                    JAVASCRIPT
+                                                    {selectedLanguage === 'js' && <Check size={14} />}
+                                                </button>
+                                                <button
+                                                    onClick={() => {
+                                                        onLanguageChange('py');
+                                                        setIsLangDropdownOpen(false);
+                                                    }}
+                                                    className={`w-full px-4 py-3 text-left text-xs font-bold hover:bg-slate-800 transition-colors flex items-center justify-between ${selectedLanguage === 'py' ? 'text-pink-500' : 'text-slate-400'}`}
+                                                >
+                                                    PYTHON
+                                                    {selectedLanguage === 'py' && <Check size={14} />}
+                                                </button>
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                </div>
+                            </div>
+                            <p className="text-slate-500 font-medium">{lang === 'pt' ? 'Reforce seu conhecimento com testes rápidos.' : 'Strengthen your knowledge with quick tests.'}</p>
+                        </div>
                     </header>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -188,90 +238,98 @@ const QuizView = ({ lang = 'pt', selectedLanguage = 'js', coursesData }) => {
                         exit={{ x: -20, opacity: 0 }}
                         className="space-y-8"
                     >
-                        <h2 className="text-2xl font-bold text-white leading-tight">{currentQuestion.question}</h2>
+                        {currentQuestion ? (
+                            <>
+                                <h2 className="text-2xl font-bold text-white leading-tight">{currentQuestion.question}</h2>
 
-                        {currentQuestion.type === 'code-selection' && (
-                            <div className="bg-[#011627] rounded-2xl p-6 border border-white/10 font-mono text-sm overflow-hidden relative shadow-2xl">
-                                <div className="space-y-1">
-                                    {currentQuestion.code.split('\n').map((line, idx) => {
-                                        const lineNum = idx + 1;
-                                        const isSelected = selectedAnswer === String(lineNum);
-                                        return (
-                                            <div
-                                                key={idx}
-                                                onClick={() => !feedback && setSelectedAnswer(String(lineNum))}
-                                                className={`flex gap-4 p-2 rounded cursor-pointer transition-all ${isSelected ? 'bg-blue-500/20 border-l-4 border-blue-500' : 'hover:bg-white/5'
-                                                    }`}
-                                            >
-                                                <span className="text-slate-600 w-4 select-none">{lineNum}</span>
-                                                <span className="text-[#d6deeb]">{line.replace(/^\d+\s+/, '')}</span>
-                                            </div>
-                                        );
-                                    })}
-                                </div>
-                            </div>
-                        )}
-
-                        {(currentQuestion.type === 'multiple-choice' || currentQuestion.type === 'boolean') && (
-                            <div className="grid grid-cols-1 gap-4">
-                                {currentQuestion.options.map((option, idx) => (
-                                    <button
-                                        key={idx}
-                                        onClick={() => !feedback && setSelectedAnswer(idx)}
-                                        className={`p-5 rounded-2xl border text-left flex items-center gap-4 transition-all group ${selectedAnswer === idx
-                                            ? 'bg-pink-500/10 border-pink-500 text-white'
-                                            : 'bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700 hover:bg-slate-800'
-                                            }`}
-                                    >
-                                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center font-bold text-xs ${selectedAnswer === idx ? 'bg-pink-500 text-white' : 'bg-slate-800 text-slate-500 group-hover:bg-slate-700'
-                                            }`}>
-                                            {idx + 1}
-                                        </div>
-                                        <span className="font-medium">{option}</span>
-                                    </button>
-                                ))}
-                            </div>
-                        )}
-
-                        {currentQuestion.type === 'fill-in-the-gaps' && (
-                            <div className="space-y-8">
-                                <div className="bg-[#011627] rounded-2xl p-6 border border-white/10 font-mono text-sm shadow-2xl">
-                                    <pre className="text-[#d6deeb]">
-                                        {currentQuestion.code.split('__').map((part, i) => (
-                                            <React.Fragment key={i}>
-                                                {part}
-                                                {i < currentQuestion.gaps.length && (
-                                                    <span className={`px-2 py-0.5 rounded border ${selectedGaps[i] !== undefined ? 'bg-pink-500/20 border-pink-500 text-pink-400' : 'bg-slate-800 border-slate-700 text-slate-500'
-                                                        }`}>
-                                                        {selectedGaps[i] !== undefined ? currentQuestion.gaps[i].options[selectedGaps[i]] : '____'}
-                                                    </span>
-                                                )}
-                                            </React.Fragment>
-                                        ))}
-                                    </pre>
-                                </div>
-
-                                <div className="space-y-6">
-                                    {currentQuestion.gaps.map((gap, gapIdx) => (
-                                        <div key={gapIdx} className="space-y-3">
-                                            <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">{gap.label}</span>
-                                            <div className="grid grid-cols-3 gap-3">
-                                                {gap.options.map((opt, optIdx) => (
-                                                    <button
-                                                        key={optIdx}
-                                                        onClick={() => !feedback && handleGapSelection(gapIdx, optIdx)}
-                                                        className={`p-3 rounded-xl border text-xs font-mono transition-all ${selectedGaps[gapIdx] === optIdx
-                                                            ? 'bg-pink-500/10 border-pink-500 text-white'
-                                                            : 'bg-slate-900 border-slate-800 text-slate-400 hover:bg-slate-800'
+                                {currentQuestion.type === 'code-selection' && (
+                                    <div className="bg-[#011627] rounded-2xl p-6 border border-white/10 font-mono text-sm overflow-hidden relative shadow-2xl">
+                                        <div className="space-y-1">
+                                            {currentQuestion.code.split('\n').map((line, idx) => {
+                                                const lineNum = idx + 1;
+                                                const isSelected = selectedAnswer === String(lineNum);
+                                                return (
+                                                    <div
+                                                        key={idx}
+                                                        onClick={() => !feedback && setSelectedAnswer(String(lineNum))}
+                                                        className={`flex gap-4 p-2 rounded cursor-pointer transition-all ${isSelected ? 'bg-blue-500/20 border-l-4 border-blue-500' : 'hover:bg-white/5'
                                                             }`}
                                                     >
-                                                        {opt}
-                                                    </button>
-                                                ))}
-                                            </div>
+                                                        <span className="text-slate-600 w-4 select-none">{lineNum}</span>
+                                                        <span className="text-[#d6deeb]">{line.replace(/^\d+\s+/, '')}</span>
+                                                    </div>
+                                                );
+                                            })}
                                         </div>
-                                    ))}
-                                </div>
+                                    </div>
+                                )}
+
+                                {(currentQuestion.type === 'multiple-choice' || currentQuestion.type === 'boolean') && (
+                                    <div className="grid grid-cols-1 gap-4">
+                                        {currentQuestion.options.map((option, idx) => (
+                                            <button
+                                                key={idx}
+                                                onClick={() => !feedback && setSelectedAnswer(idx)}
+                                                className={`p-5 rounded-2xl border text-left flex items-center gap-4 transition-all group ${selectedAnswer === idx
+                                                    ? 'bg-pink-500/10 border-pink-500 text-white'
+                                                    : 'bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700 hover:bg-slate-800'
+                                                    }`}
+                                            >
+                                                <div className={`w-8 h-8 rounded-lg flex items-center justify-center font-bold text-xs ${selectedAnswer === idx ? 'bg-pink-500 text-white' : 'bg-slate-800 text-slate-500 group-hover:bg-slate-700'
+                                                    }`}>
+                                                    {idx + 1}
+                                                </div>
+                                                <span className="font-medium">{option}</span>
+                                            </button>
+                                        ))}
+                                    </div>
+                                )}
+
+                                {currentQuestion.type === 'fill-in-the-gaps' && (
+                                    <div className="space-y-8">
+                                        <div className="bg-[#011627] rounded-2xl p-6 border border-white/10 font-mono text-sm shadow-2xl">
+                                            <pre className="text-[#d6deeb]">
+                                                {currentQuestion.code.split('__').map((part, i) => (
+                                                    <React.Fragment key={i}>
+                                                        {part}
+                                                        {i < currentQuestion.gaps.length && (
+                                                            <span className={`px-2 py-0.5 rounded border ${selectedGaps[i] !== undefined ? 'bg-pink-500/20 border-pink-500 text-pink-400' : 'bg-slate-800 border-slate-700 text-slate-500'
+                                                                }`}>
+                                                                {selectedGaps[i] !== undefined ? currentQuestion.gaps[i].options[selectedGaps[i]] : '____'}
+                                                            </span>
+                                                        )}
+                                                    </React.Fragment>
+                                                ))}
+                                            </pre>
+                                        </div>
+
+                                        <div className="space-y-6">
+                                            {currentQuestion.gaps.map((gap, gapIdx) => (
+                                                <div key={gapIdx} className="space-y-3">
+                                                    <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">{gap.label}</span>
+                                                    <div className="grid grid-cols-3 gap-3">
+                                                        {gap.options.map((opt, optIdx) => (
+                                                            <button
+                                                                key={optIdx}
+                                                                onClick={() => !feedback && handleGapSelection(gapIdx, optIdx)}
+                                                                className={`p-3 rounded-xl border text-xs font-mono transition-all ${selectedGaps[gapIdx] === optIdx
+                                                                    ? 'bg-pink-500/10 border-pink-500 text-white'
+                                                                    : 'bg-slate-900 border-slate-800 text-slate-400 hover:bg-slate-800'
+                                                                    }`}
+                                                            >
+                                                                {opt}
+                                                            </button>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+                            </>
+                        ) : (
+                            <div className="text-center p-12 text-slate-500 italic">
+                                {t.waiting_execution}
                             </div>
                         )}
                     </motion.div>
@@ -301,10 +359,10 @@ const QuizView = ({ lang = 'pt', selectedLanguage = 'js', coursesData }) => {
                                         <div>
                                             <span className="text-[10px] font-black text-pink-500 uppercase tracking-widest block mb-2">{t.correct_solution}</span>
                                             <div className="flex flex-wrap gap-2">
-                                                {currentQuestion.gaps.map((gap, idx) => (
+                                                {currentQuestion.gaps?.map((gap, idx) => (
                                                     <div key={idx} className="bg-slate-800 px-3 py-1 rounded-lg border border-slate-700 text-xs font-mono">
                                                         <span className="text-slate-500 mr-2">{gap.label || `Gap ${idx + 1}`}:</span>
-                                                        <span className="text-green-400 font-bold">{gap.options[gap.answer]}</span>
+                                                        <span className="text-green-400 font-bold">{gap.options?.[gap.answer]}</span>
                                                     </div>
                                                 ))}
                                             </div>
@@ -314,7 +372,7 @@ const QuizView = ({ lang = 'pt', selectedLanguage = 'js', coursesData }) => {
                                             <span className="text-[10px] font-black text-pink-500 uppercase tracking-widest block mb-1">{t.correct_solution}</span>
                                             <p className="text-green-400 font-bold text-sm">
                                                 {currentQuestion.type === 'multiple-choice' || currentQuestion.type === 'boolean'
-                                                    ? currentQuestion.options[currentQuestion.answer]
+                                                    ? currentQuestion.options?.[currentQuestion.answer]
                                                     : currentQuestion.answer}
                                             </p>
                                         </div>
