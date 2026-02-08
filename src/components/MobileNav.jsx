@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { Home, Trophy, Target, TrendingUp, User, Sparkles } from 'lucide-react';
+import { Home, Trophy, Target, TrendingUp, User, Sparkles, ClipboardList } from 'lucide-react';
 import { translations } from '@/data/translations';
 
 const NavItem = ({ icon: Icon, active, onClick }) => (
@@ -36,6 +36,11 @@ const MobileNav = ({ currentView, onViewChange, lang = 'pt' }) => {
                 icon={TrendingUp}
                 active={currentView === 'leaderboard'}
                 onClick={() => onViewChange('leaderboard')}
+            />
+            <NavItem
+                icon={ClipboardList}
+                active={currentView === 'quiz'}
+                onClick={() => onViewChange('quiz')}
             />
             <NavItem
                 icon={User}

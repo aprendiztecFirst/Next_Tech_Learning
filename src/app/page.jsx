@@ -12,12 +12,24 @@ import LoginView from '@/components/LoginView';
 import GoalsView from '@/components/GoalsView';
 import DailyChallengeView from '@/components/DailyChallengeView';
 import LeaderboardView from '@/components/LeaderboardView';
+import QuizView from '@/components/QuizView';
 import LogoutView from '@/components/LogoutView';
 import MobileNav from '@/components/MobileNav';
 
 
-import coursesData from '@/data/courses.json';
-import challengesData from '@/data/challenges.json';
+// Data sources
+import coursesPt from '@/data/courses_pt.json';
+import coursesEn from '@/data/courses_en.json';
+import challengesPt from '@/data/challenges_pt.json';
+import challengesEn from '@/data/challenges_en.json';
+
+const coursesRepo = { pt: coursesPt, en: coursesEn };
+const challengesRepo = { pt: challengesPt, en: challengesEn };
+import dailyChallengesPt from '@/data/daily_challenges_pt.json';
+import dailyChallengesEn from '@/data/daily_challenges_en.json';
+import { quizzes } from '@/data/quizzes';
+
+const dailyChallengesRepo = { pt: dailyChallengesPt, en: dailyChallengesEn };
 import { ChevronLeft } from 'lucide-react';
 import { translations } from '@/data/translations';
 import { supabase } from '@/lib/supabase';
@@ -25,11 +37,14 @@ import { useEffect } from 'react';
 
 
 export default function Home() {
+  const [interfaceLanguage, setInterfaceLanguage] = useState('pt'); // 'pt' or 'en'
+  const [coursesData, setCoursesData] = useState(coursesRepo[interfaceLanguage]);
+  const [challengesData, setChallengesData] = useState(challengesRepo[interfaceLanguage]);
+  const [dailyChallengesData, setDailyChallengesData] = useState(dailyChallengesRepo[interfaceLanguage]);
+
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoggedOut, setIsLoggedOut] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState('js'); // 'js' or 'py'
-
-  const [interfaceLanguage, setInterfaceLanguage] = useState('pt'); // 'pt' or 'en'
   const [view, setView] = useState('journey'); // 'journey', 'lesson', 'worlds', 'challenge'
 
   const [userData, setUserData] = useState({
@@ -44,6 +59,12 @@ export default function Home() {
     followers: 0,
     league: 'Starter'
   });
+
+  useEffect(() => {
+    setCoursesData(coursesRepo[interfaceLanguage]);
+    setChallengesData(challengesRepo[interfaceLanguage]);
+    setDailyChallengesData(dailyChallengesRepo[interfaceLanguage]);
+  }, [interfaceLanguage]);
 
   useEffect(() => {
     if (!supabase) return;
@@ -277,7 +298,7 @@ export default function Home() {
       if (currentIndex !== -1 && currentIndex < allLangChallenges.length - 1) {
         setActiveChallenge(allLangChallenges[currentIndex + 1]);
       } else {
-        alert(interfaceLanguage === 'en' ? "Congratulations! You completed all world challenges." : "Parabéns! Você concluiu todos os desafios de mundo.");
+        alert(t.world_complete);
         setView('worlds');
       }
     } else {
@@ -313,7 +334,7 @@ export default function Home() {
         setActiveCourseId(nextCourse.id);
         setActiveLessonId(nextCourse.lessons[0].id);
       } else {
-        alert(interfaceLanguage === 'en' ? "Amazing! You completed the entire journey." : "Incrível! Você concluiu toda a jornada.");
+        alert(t.journey_complete);
         setView('journey');
       }
     }
@@ -394,6 +415,14 @@ export default function Home() {
             lang={interfaceLanguage}
             onSelectChallenge={handleSelectChallenge}
             selectedLanguage={selectedLanguage}
+            dailyChallenges={dailyChallengesData}
+          />
+        )}
+        {view === 'quiz' && (
+          <QuizView
+            lang={interfaceLanguage}
+            selectedLanguage={selectedLanguage}
+            coursesData={coursesData}
           />
         )}
 
@@ -414,6 +443,7 @@ export default function Home() {
             <LessonInterface
               lesson={activeChallenge || activeLesson}
               onComplete={handleLessonComplete}
+              lang={interfaceLanguage}
             />
           </div>
         )}

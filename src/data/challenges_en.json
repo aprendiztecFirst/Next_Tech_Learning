@@ -1,0 +1,66 @@
+{
+    "py": {
+        "world1": [
+            {
+                "id": "py-ex001",
+                "title": "EX001 – Hello World",
+                "description": "Create a program that writes 'Hello World' on the screen.",
+                "initialCode": "print()",
+                "solution": "print('Hello World')",
+                "test": "output.includes('Hello World')"
+            }
+        ],
+        "world2": [
+            {
+                "id": "py-ex036",
+                "title": "EX036 – Home Loan",
+                "description": "Approve a loan if payment <= 30% salary.",
+                "initialCode": "house = float(input()); salary = float(input()); years = int(input())",
+                "solution": "c=float(input()); s=float(input()); a=int(input()); p=c/(a*12); print('Approved' if p<=s*0.3 else 'Denied')",
+                "test": "output.length > 0"
+            }
+        ],
+        "world3": [
+            {
+                "id": "py-ex072",
+                "title": "EX072 – Number in Full",
+                "description": "Tuple with 0-20 in full, read and show.",
+                "initialCode": "ext = ('zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen','twenty')",
+                "solution": "ext=('zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen','twenty'); n=int(input()); print(ext[n])",
+                "test": "output.length > 0"
+            }
+        ]
+    },
+    "js": {
+        "world1": [
+            {
+                "id": "js-ex001",
+                "title": "EX001 – Hello World",
+                "description": "Create a program that writes 'Hello World' on the screen.",
+                "initialCode": "console.log()",
+                "solution": "console.log('Hello World')",
+                "test": "output.includes('Hello World')"
+            }
+        ],
+        "world2": [
+            {
+                "id": "js-ex036",
+                "title": "EX036 – Home Loan",
+                "description": "Approve loan if payment <= 30% salary.",
+                "initialCode": "",
+                "solution": "console.log('Approved')",
+                "test": "output.length > 0"
+            }
+        ],
+        "world3": [
+            {
+                "id": "js-ex072",
+                "title": "EX072 – Number in Full",
+                "description": "Array with 0-20 in full.",
+                "initialCode": "const ext = ['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen','twenty']",
+                "solution": "const ext=['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen','twenty']; let n=parseInt(prompt()); console.log(ext[n])",
+                "test": "output.length > 0"
+            }
+        ]
+    }
+}

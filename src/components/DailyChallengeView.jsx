@@ -4,15 +4,15 @@ import React from 'react';
 import { Trophy, Flame, Zap, Star, LayoutGrid, Clock, ChevronRight, Play } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { translations } from '@/data/translations';
-import dailyChallenges from '@/data/daily_challenges.json';
+import { dailyChallengesMetadata } from '@/data/daily_challenges_metadata';
 
-const DailyChallengeView = ({ lang = 'pt', onSelectChallenge, selectedLanguage = 'js' }) => {
+const DailyChallengeView = ({ lang = 'pt', onSelectChallenge, selectedLanguage = 'js', dailyChallenges }) => {
     const t = translations[lang];
 
     const categories = [
-        { id: 'basico', title: 'Básico', color: 'bg-green-500', icon: Star, items: dailyChallenges.basico },
-        { id: 'intermediario', title: 'Intermediário', color: 'bg-yellow-500', icon: Zap, items: dailyChallenges.intermediario },
-        { id: 'avancado', title: 'Avançado', color: 'bg-red-500', icon: Trophy, items: dailyChallenges.avancado },
+        { id: 'basico', title: t.basic, color: 'bg-green-500', icon: Star, items: dailyChallenges.basico },
+        { id: 'intermediario', title: t.intermediate, color: 'bg-yellow-500', icon: Zap, items: dailyChallenges.intermediario },
+        { id: 'avancado', title: t.advanced, color: 'bg-red-500', icon: Trophy, items: dailyChallenges.avancado },
     ];
 
     return (
@@ -23,7 +23,7 @@ const DailyChallengeView = ({ lang = 'pt', onSelectChallenge, selectedLanguage =
                     <h1 className="text-3xl font-black text-white tracking-tight">{t.daily_challenge}</h1>
                 </div>
                 <p className="text-slate-400 font-bold max-w-2xl">
-                    Melhore suas habilidades todos os dias com novos desafios. Escolha o nível de dificuldade e comece a praticar!
+                    {t.daily_challenge_desc}
                 </p>
             </header>
 
@@ -37,7 +37,7 @@ const DailyChallengeView = ({ lang = 'pt', onSelectChallenge, selectedLanguage =
                                 </div>
                                 <h2 className="text-xl font-black text-white tracking-tight">{cat.title}</h2>
                             </div>
-                            <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">{cat.items.length} Desafios</span>
+                            <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">{cat.items.length} {t.challenges}</span>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -50,14 +50,16 @@ const DailyChallengeView = ({ lang = 'pt', onSelectChallenge, selectedLanguage =
                                     onClick={() => {
                                         const title = item.includes(':') ? item.split(':')[0] : item;
                                         const description = item.includes(':') ? item.split(':')[1] : '';
+                                        const metadata = dailyChallengesMetadata[selectedLanguage]?.[title] || {};
+
                                         onSelectChallenge({
                                             id: `${selectedLanguage}-daily-${cat.id}-${i}`,
                                             title: title,
                                             description: description,
-                                            instructions: `Implemente o desafio: ${title}`,
-                                            initialCode: selectedLanguage === 'js' ? "// Escreva seu código aqui\n" : "# Escreva seu código aqui\n",
-                                            solution: "// Solução genérica para desafio diário",
-                                            test: "output.length > 0"
+                                            instructions: metadata.instructions || `Implemente o desafio: ${title}`,
+                                            initialCode: metadata.initialCode || (selectedLanguage === 'js' ? "// Escreva seu código aqui\n" : "# Escreva seu código aqui\n"),
+                                            solution: metadata.solution || "// Solução genérica para desafio diário",
+                                            test: metadata.test || "output.length > 0"
                                         });
                                     }}
                                     className="bg-slate-900/40 backdrop-blur-sm border border-slate-800 rounded-2xl p-4 hover:border-blue-500/50 hover:bg-slate-900 transition-all cursor-pointer group flex flex-col justify-between h-40"
@@ -97,13 +99,13 @@ const DailyChallengeView = ({ lang = 'pt', onSelectChallenge, selectedLanguage =
                         <Flame size={24} className="text-orange-500 fill-orange-500" />
                     </div>
                     <div>
-                        <h4 className="text-white font-bold">Mantenha sua Sequência!</h4>
-                        <p className="text-xs text-slate-500">Complete um desafio diário para não perder seus 1 dias de streak.</p>
+                        <h4 className="text-white font-bold">{t.keep_streak}</h4>
+                        <p className="text-xs text-slate-500">{t.keep_streak_desc}</p>
                     </div>
                 </div>
                 <div className="flex items-center gap-2 text-xs font-bold text-slate-400">
                     <Clock size={16} />
-                    Próxima atualização em: <span className="text-white font-black">12:34:56</span>
+                    {t.next_update} <span className="text-white font-black">12:34:56</span>
                 </div>
             </div>
         </div>

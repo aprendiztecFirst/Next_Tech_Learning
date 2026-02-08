@@ -153,8 +153,8 @@ const JourneyMap = ({ courses, activeCourse, currentLessonId, onSelectLesson, se
                         </div>
                         <div className="flex items-center gap-3">
                             <div className="text-right flex flex-col items-end">
-                                <span className="text-[10px] font-black text-blue-500 uppercase tracking-widest">Estudante</span>
-                                <span className="text-sm font-black text-white">{userData?.name || 'Estudante'}</span>
+                                <span className="text-[10px] font-black text-blue-500 uppercase tracking-widest">{t.student}</span>
+                                <span className="text-sm font-black text-white">{userData?.name || t.student}</span>
                             </div>
                             <div className="flex -space-x-2">
 

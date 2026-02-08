@@ -63,7 +63,7 @@ const SettingsView = ({ interfaceLanguage = 'pt', setInterfaceLanguage }) => {
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-white">{t.dark_theme}</h3>
-                                    <p className="text-xs text-slate-500">Mantenha a estética dark.</p>
+                                    <p className="text-xs text-slate-500">{t.dark_theme_desc}</p>
                                 </div>
                             </div>
                             <div className="w-12 h-6 bg-blue-600 rounded-full p-1 relative">
@@ -78,7 +78,7 @@ const SettingsView = ({ interfaceLanguage = 'pt', setInterfaceLanguage }) => {
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-white">{t.notifications}</h3>
-                                    <p className="text-xs text-slate-500">Avisos de novas aulas e conquistas.</p>
+                                    <p className="text-xs text-slate-500">{t.notifications_desc}</p>
                                 </div>
                             </div>
                             <div className="w-12 h-6 bg-slate-700 rounded-full p-1 relative">

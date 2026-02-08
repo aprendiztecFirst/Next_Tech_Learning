@@ -71,6 +71,13 @@ const Sidebar = ({ currentView, onViewChange, onLogout, lang = 'pt' }) => {
           onClick={() => onViewChange('leaderboard')}
           color="text-yellow-500"
         />
+        <SidebarItem
+          icon={Map}
+          label={t.quiz}
+          active={currentView === 'quiz'}
+          onClick={() => onViewChange('quiz')}
+          color="text-pink-500"
+        />
         <hr className="my-2 border-slate-900" />
 
         <SidebarItem
